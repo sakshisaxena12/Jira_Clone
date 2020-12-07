@@ -1,35 +1,83 @@
 <body>
 
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="">
+
+          <h1 style=" margin-left: -50px; color: black; font-weight: bolder;"><img src="../../../assets/bluelogo.png"
+              style="height: 50px; width: 60px;">TRACK UP</h1>
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li style="margin-right: -50px;">
+          <p style="background-color: #0a84ff;color: white; padding: 7px; margin-top: 14%;">Made with
+            &nbsp;<i class="fa fa-heart" style="font-size:16px; color:red"></i></p>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <div class="passage">
+    <h1
+      style="color: black; text-align:left; border: 3px black; border-style: dashed; border-radius: 6px; font-weight: bolder; font-size: 40px; padding: 30px; top: 50px; left: 20px;">
+      WELCOME<br>
+      TO MY TRACK UP
+    </h1>
+  </div>
+
+  <div class="tagline">
+    <p><i class="fa fa-quote-left"></i>&nbsp;Where teams come together&nbsp;<i class="fa fa-quote-right"></i></p>
+    <hr style="border: 1px solid #c3c4c5;">
+    <p style="font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ">Track
+      projects work-flows and teams with ease. Flexible in managing on-going<br>
+      projects on daily basis in the team, between the teams and within the organisations.</p>
+  </div>
+
+
+
+
+
+
+
+
   <div class="login">
-    <p id="logo"><img src="../../../assets/images/logo.png"></p>
-    <h4>Login</h4><br>
+    <!--<p id="logo"><img src="../../../assets/images/logo.png"></p>-->
+    <h5 style="text-align: center; font-weight: bold;">LogIn</h5><br>
     <form #f="ngForm" (ngSubmit)="Login(f.value)">
-      <p>User Name</p>
+      <!-- <p>Email</p> -->
 
       <input type="text" #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName"
-        placeholder="Enter Username" class="form-control" required>
+        placeholder="Email" class="form-control" required style="margin-bottom: 30px;">
       <div class="invalid-feedback" *ngIf="userName.touched && userName.invalid">
         User Name Is Required.
       </div>
 
-      <p>Password</p>
+      <!--<p>Password</p>-->
+
       <div class="input-group" id="show_hide_password">
         <input [type]="isTextFieldType ? 'text' : 'password'" #password="ngModel" [(ngModel)]="login.password"
-          name="password" id="password" placeholder="Enter password" class="form-control" required>
+          name="password" id="password" placeholder="Password" class="form-control" required style="width: 100%;">
+
+        &nbsp;
+        &nbsp;
         <div class="input-group-addon" *ngIf="!isTextFieldType">
           <a (click)="togglePasswordFieldType()"><i class="fa fa-eye" aria-hidden="true"></i></a>
         </div>
 
         <div class="input-group-addon" *ngIf="isTextFieldType">
-          <a (click)="togglePasswordFieldType()"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+          <a (click)=" togglePasswordFieldType()"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
         </div>
       </div>
+
 
       <div class="invalid-feedback" *ngIf="password.touched && password.invalid">
         Password Is Required.
       </div>
 
-      <input [disabled]="!f.valid" type="submit" value="Login">
+      <input [disabled]="!f.valid" type="submit" value="Login" style="margin-top: 20px;">
 
     </form>
   </div>
