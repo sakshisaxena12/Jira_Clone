@@ -8,7 +8,7 @@ export const environment = {
   apiUrl:'http://localhost:3000/api',
 
 
-  webapiUrl:'//apitest.pobara.com/'
+  webapiUrl:''
 
   //webapiUrl:'http://localhost:59934/'
 
