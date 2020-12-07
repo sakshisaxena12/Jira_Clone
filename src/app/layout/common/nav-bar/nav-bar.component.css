@@ -2,3 +2,40 @@
   background-color: #ddd;
 
 }
+
+.collapse {
+ padding-left: 110px;
+}
+
+
+.paddings
+{
+  padding-left: 80px;
+}
+
+
+.profile-card {
+	text-align: center;
+	
+}
+	
+img {
+	  width: 20px;
+	  height: 20px;
+	  object-fit: cover;
+	  border-radius: 50%;
+	}
+  
+
+  .nav-link{
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .TrackUp{
+    padding-left: 10px;
+    padding-right: 10px;
+    /* padding-top: 5px; */
+  }
+
+  

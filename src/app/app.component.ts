@@ -41,7 +41,7 @@ export class AppComponent {
 
   }
 
-  title = 'HRMS';
+  title = 'TrackUp';
 
 }
  
