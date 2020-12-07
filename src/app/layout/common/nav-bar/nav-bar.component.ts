@@ -13,8 +13,7 @@ export class NavBarComponent implements OnInit {
   Name;
 
   constructor(private authService: AuthService) {
-     this.Name = JSON.parse(sessionStorage.getItem('user')).userName;
-     console.log(this.Name)
+     this.Name = "XYZ"
 
 
    }
