@@ -26,7 +26,7 @@ const routes: Routes = [
 
 
   {
-    path: 'dashboard', component: DefaultComponent,
+    path: 'company/:companyId', component: DefaultComponent,
       //canActivate: [AuthGuardService],
       // data: { roles: [
       //   Role.Admin,
@@ -37,22 +37,10 @@ const routes: Routes = [
 
     children: [
       {
-        path: '', component: DashboardComponent,
+        path: 'dashboard', component: DashboardComponent,
         //canActivate: [AuthGuardService]
       },
 
-      
-     
-      // {
-      //   path: 'create/new/employee', component:CreateEmployeeComponent,
-      //   canActivate: [AuthGuardService],
-      //   data: { roles: [
-      //     Role.Admin,
-      //     Role.HR,
-      //     //Role.Manager,
-      //     //Role.User
-      //   ]}
-      // },
      
       
       // {
@@ -78,7 +66,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'create/ticket' , component: AddTicketComponent,
+        path: 'board/:boardId/ticket/create' , component: AddTicketComponent,
         // canActivate: [AuthGuardService],
         // data: { roles: [
         //   Role.Admin,
@@ -89,7 +77,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'view/ticket' , component: ViewTicketComponent,
+        path: 'board/:boardId/ticket/view/:ticketId' , component: ViewTicketComponent,
         // canActivate: [AuthGuardService],
         // data: { roles: [
         //   Role.Admin,

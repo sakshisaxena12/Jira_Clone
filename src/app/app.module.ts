@@ -52,6 +52,9 @@ import { AddTicketComponent } from './layout/component/ticket/component/add-tick
 import { ViewTicketComponent } from './layout/component/ticket/component/view-ticket/view-ticket.component';
 import { AddEmployeeComponent } from './layout/component/employee/component/add-employee/add-employee.component';
 import { EmployeeListComponent } from './layout/component/employee/component/employee-list/employee-list.component';
+import { ViewIssuesComponent } from './layout/component/issues/component/view-issues/view-issues.component';
+import { CreateIssuesComponent } from './layout/component/issues/component/create-issues/create-issues.component';
+import { MyIssuesComponent } from './layout/component/issues/component/my-issues/my-issues.component';
 
 
 
@@ -71,6 +74,9 @@ import { EmployeeListComponent } from './layout/component/employee/component/emp
     ViewTicketComponent,
     AddEmployeeComponent,
     EmployeeListComponent,
+    ViewIssuesComponent,
+    CreateIssuesComponent,
+    MyIssuesComponent,
 
   ],
   imports: [
