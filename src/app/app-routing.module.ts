@@ -97,6 +97,14 @@ const routes: Routes = [
 
   ];
 
+
+
+
+//   /comp/:compId/board/:boardId/ticket/:ticketId
+// /comp/:compId/board/:boardId/ticket/create
+// /comp/:compId/dashboard
+// /comp/:comp/board/:boardId
+
 @NgModule({
   imports: [RouterModule.forRoot(routes),
     ToastrModule.forRoot()],
