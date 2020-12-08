@@ -10,6 +10,10 @@ import { PageNotFoundComponent } from './layout/component/page-not-found/page-no
 import { AuthGuardService } from './service/auth-guard.service';
 import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
 import { Role } from './models/role';
+import { AddTicketComponent } from './layout/component/ticket/component/add-ticket/add-ticket.component';
+import { ViewTicketComponent } from './layout/component/ticket/component/view-ticket/view-ticket.component';
+import { AddEmployeeComponent } from './layout/component/employee/component/add-employee/add-employee.component';
+import { EmployeeListComponent } from './layout/component/employee/component/employee-list/employee-list.component';
 
 const routes: Routes = [
 
@@ -72,6 +76,51 @@ const routes: Routes = [
         //   Role.User
         // ]}
       },
+
+      {
+        path: 'create/ticket' , component: AddTicketComponent,
+        // canActivate: [AuthGuardService],
+        // data: { roles: [
+        //   Role.Admin,
+        //   Role.HR,
+        //   Role.Manager,
+        //   Role.User
+        // ]}
+      },
+
+      {
+        path: 'view/ticket' , component: ViewTicketComponent,
+        // canActivate: [AuthGuardService],
+        // data: { roles: [
+        //   Role.Admin,
+        //   Role.HR,
+        //   Role.Manager,
+        //   Role.User
+        // ]}
+      },
+
+      {
+        path: 'Add/Employee' , component: AddEmployeeComponent
+        // canActivate: [AuthGuardService],
+        // data: { roles: [
+        //   Role.Admin,
+        //   Role.HR,
+        //   Role.Manager,
+        //   Role.User
+        // ]}
+      },
+
+      {
+        path: 'Employee/List' , component: EmployeeListComponent 
+        // canActivate: [AuthGuardService],
+        // data: { roles: [
+        //   Role.Admin,
+        //   Role.HR,
+        //   Role.Manager,
+        //   Role.User
+        // ]}
+      },
+
       // {
       //   path: 'employer/list', component: EmployerListComponent,
       //   canActivate: [AuthGuardService],
