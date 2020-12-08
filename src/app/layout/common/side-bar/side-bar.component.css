@@ -17,6 +17,7 @@ a:focus{
 	display: flex;
 	width: 100%;
 	align-items: stretch;
+	overflow-y: scroll;
 	/*display: none;*/
 }
 
@@ -27,8 +28,18 @@ a:focus{
 	color: #fff;
 	transition: all 0.3s;
 	height: 100%;
+	overflow-y: scroll;
 	/*position: fixed;*/
 
+}
+
+#sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+
+.wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 #sidebar.active{
