@@ -1,0 +1,8 @@
+[
+    {"ID" : 1,"Name" : "Abhay sahu", "Email" : "sahua545@gmal.com", "Password" : "sahu", "DBO" : "26-01-2020", "PhoneNumber" : "9617625945", "Address" : "Subhash colony"},
+    {"ID" : 2,"Name" : "a", "Email" : "a2@gmal.com", "Password" : "a2", "DBO" : "26-01-2020", "PhoneNumber" : "9617625945", "Address" : "Subhash colony"},
+    {"ID" : 3,"Name" : "b", "Email" : "b3@gmal.com", "Password" : "b3", "DBO" : "26-01-2020", "PhoneNumber" : "9617625945", "Address" : "Subhash colony"},
+    {"ID" : 4,"Name" : "c", "Email" : "c4@gmal.com", "Password" : "c4", "DBO" : "26-01-2020", "PhoneNumber" : "9617625945", "Address" : "Subhash colony"}
+
+
+]

@@ -26,10 +26,14 @@
                 <a href="#page2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i>  Employee</a>
                 <ul class="collapse list-unstyled" id="page2Submenu" data-accordion="false">
                     <li>
-                        <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);"> Add Emplopyee</a>
+                        <!-- company/2/Add/Employee -->
+                        <!-- <a (click)="routersToRedirect('Add/Employee')" style="color:rgb(127,131,135);"> Add Emplopyee</a> -->
+
+                        <a [routerLink]="['/company/' + this.CompanyId + '/Add/Employee' ]" style="color:rgb(127,131,135);"> Add Emplopyee</a>
+
                     </li>
                     <li>
-                        <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);"> Emplopyee List</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/Employee/List' ]" style="color:rgb(127,131,135);"> Emplopyee List</a>
                     </li>
                 </ul>
                 <hr>
@@ -39,34 +43,34 @@
                 <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i> Board Id</a>
                 <ul class="collapse list-unstyled" id="page3Submenu" data-accordion="false">
                     <li>
-                        <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Sample 1</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.boardId ]" style="color:rgb(127,131,135);">Sample 1</a>
                     </li>
 
                     <li>
-                        <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);">Sample 2</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/2' ]" style="color:rgb(127,131,135);">Sample 2</a>
                     </li>
 
                     <li>
-                        <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Sample 3</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/3' ]" style="color:rgb(127,131,135);">Sample 3</a>
                     </li>
 
                     <li>
-                        <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);">Sample 4</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/4' ]" style="color:rgb(127,131,135);">Sample 4</a>
                     </li>
                     <li>
-                        <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Sample 5</a>
-                    </li>
-
-                    <li>
-                        <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);">Sample 6</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/5' ]" style="color:rgb(127,131,135);">Sample 5</a>
                     </li>
 
                     <li>
-                        <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Sample 7</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/6' ]" style="color:rgb(127,131,135);">Sample 6</a>
                     </li>
 
                     <li>
-                        <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);">Sample 8</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/7' ]" style="color:rgb(127,131,135);">Sample 7</a>
+                    </li>
+
+                    <li>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/board/8' ]" style="color:rgb(127,131,135);">Sample 8</a>
                     </li>
                 </ul>
                 <hr>

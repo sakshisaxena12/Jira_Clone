@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { Role } from 'src/app/models/role';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,12 +13,20 @@ export class SideBarComponent implements OnInit {
   opened = false;
   roles;
 
+  CompanyId;
+  boardId;
+
   Admin= false;
   HR=false;
   Manager=false;
   User=false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,private router: Router,) {
+
+    this.CompanyId = 2
+    this.boardId = 1
+
+
 
     this.Admin= false;
     this.HR=false;
@@ -48,6 +57,15 @@ export class SideBarComponent implements OnInit {
 
 
    }
+
+
+   routersToRedirect(name)
+   {
+     console.log(name)
+      this.router.navigate([`company/${this.CompanyId}/${name}`]);
+   }
+
+  
 
   ngOnInit() {
   }
