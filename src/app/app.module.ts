@@ -48,6 +48,10 @@ import { ErrorHandlingService } from './service/error-handling.service';
 import { GraphComponent } from './layout/component/dashboard/components/graph/graph.component';
 import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
 import { PopoverModule } from 'ngx-smart-popover';
+import { AddTicketComponent } from './layout/component/ticket/component/add-ticket/add-ticket.component';
+import { ViewTicketComponent } from './layout/component/ticket/component/view-ticket/view-ticket.component';
+import { AddEmployeeComponent } from './layout/component/employee/component/add-employee/add-employee.component';
+import { EmployeeListComponent } from './layout/component/employee/component/employee-list/employee-list.component';
 
 
 
@@ -63,6 +67,10 @@ import { PopoverModule } from 'ngx-smart-popover';
     PageNotFoundComponent,
     GraphComponent,
     SubdashboardComponent,
+    AddTicketComponent,
+    ViewTicketComponent,
+    AddEmployeeComponent,
+    EmployeeListComponent,
 
   ],
   imports: [
