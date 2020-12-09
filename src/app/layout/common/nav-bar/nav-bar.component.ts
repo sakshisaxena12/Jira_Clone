@@ -11,9 +11,11 @@ export class NavBarComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   Name;
+  CompanyId;
 
   constructor(private authService: AuthService) {
      this.Name = "XYZ"
+     this.CompanyId = 2
 
 
    }

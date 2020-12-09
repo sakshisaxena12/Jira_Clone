@@ -55,6 +55,9 @@ import { EmployeeListComponent } from './layout/component/employee/component/emp
 import { ViewIssuesComponent } from './layout/component/issues/component/view-issues/view-issues.component';
 import { CreateIssuesComponent } from './layout/component/issues/component/create-issues/create-issues.component';
 import { MyIssuesComponent } from './layout/component/issues/component/my-issues/my-issues.component';
+import { EmployeeService } from './layout/component/employee/service/employee.service';
+import { TicketService } from './layout/component/ticket/service/ticket.service';
+import { DashboardService } from './layout/component/dashboard/service/dashboard.service';
 
 
 
@@ -121,6 +124,9 @@ import { MyIssuesComponent } from './layout/component/issues/component/my-issues
     LoginService,
     AuthGuardService,
     AuthService,
+    EmployeeService,
+    TicketService,
+    DashboardService,
     CustomToastrService,
     ErrorHandlingService,
   ],
