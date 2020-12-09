@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.BoardId = params.get('boardId');
-      this.CompanyId=params.get('companyId')
+      this.CompanyId=2
 
       console.log(this.BoardId)
 

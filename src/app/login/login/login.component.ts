@@ -56,7 +56,26 @@ export class LoginComponent implements OnInit {
   {
     console.log(form)
 
-    this.router.navigate([`company/${this.CompanyId}/dashboard`]);
+    if(form.userName=="sahua545@gmail.com" && form.password=="sahu")
+    {
+      this.message="You are Login successfully Wait for redirect"
+      this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
+
+      setTimeout(()=>
+      {
+        this.router.navigate([`company/${this.CompanyId}/dashboard`]);
+      }, 3000);
+
+    }
+
+    else
+    {
+      this.message="Username or Password is invalid"
+      this.customToastrService.GetErrorToastr(this.message, "Login Status", 3000)
+
+    }
+
+    
   }
 
 

@@ -17,7 +17,8 @@ import { EmployeeListComponent } from './layout/component/employee/component/emp
 
 const routes: Routes = [
 
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: 'company/2', pathMatch: 'full'},
+  // {path: 'pagenotfound' , component: PageNotFoundComponent},
   {path: 'login', component: LoginComponent},
 
   {path: 'navbar', component: NavBarComponent},
@@ -58,6 +59,8 @@ const routes: Routes = [
       //     //Role.User
       //   ]}
       // },
+
+      {path: '', redirectTo: 'pagenotfound', pathMatch: 'full'},
       
       {
         path: 'pagenotfound' , component: PageNotFoundComponent,
