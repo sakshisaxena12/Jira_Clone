@@ -24,8 +24,8 @@ export class AuthService {
 
 
   login(params): Observable<LoggedinUser> {
-    var data = `grant_type=password&username=${params.userName}&password=${params.password}`;
-    return this.httpClient.post<LoggedinUser>(environment.webapiUrl + 'token', data);
+    
+    return this.httpClient.post<LoggedinUser>(environment.webapiUrl + 'api/login', params);
   }
 
 
@@ -48,6 +48,8 @@ export class AuthService {
 
   public get getToken() { return sessionStorage.getItem('token'); }
 
+  public get CompanyID() { return sessionStorage.getItem('companyId'); }
+
   public get getRefreshToken() { return sessionStorage.getItem('refresh'); }
   
 
@@ -58,30 +60,31 @@ export class AuthService {
 
 
   public manageSession(data: LoggedinUser) {
-    sessionStorage.setItem('token', data.access_token);
-    sessionStorage.setItem('refresh', data.refresh_token);
+    sessionStorage.setItem('token', data.authToken);
+    sessionStorage.setItem('companyId', data.companyId);
+    // sessionStorage.setItem('refresh', data.refresh_token);
     sessionStorage.setItem('user', JSON.stringify(data));
 
-    console.log(data.Id)
+    // console.log(data.Id)
     
 
 
-    if(data.Id=="72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5")
-    {
-      sessionStorage.setItem('role', Role.Admin);
-    }
-    else if(data.Id=="eca650a6-25fe-45a0-a9a1-5934eac3d64a")
-    {
-      sessionStorage.setItem('role', Role.HR);
-    }
-    else if(data.Id=="b2e6392c-f944-4f17-9f48-f0a79e561397")
-    {
-      sessionStorage.setItem('role', Role.Manager);
-    }
-    else
-    {
-      sessionStorage.setItem('role', Role.User);
-    }
+    // if(data.Id=="72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5")
+    // {
+    //   sessionStorage.setItem('role', Role.Admin);
+    // }
+    // else if(data.Id=="eca650a6-25fe-45a0-a9a1-5934eac3d64a")
+    // {
+    //   sessionStorage.setItem('role', Role.HR);
+    // }
+    // else if(data.Id=="b2e6392c-f944-4f17-9f48-f0a79e561397")
+    // {
+    //   sessionStorage.setItem('role', Role.Manager);
+    // }
+    // else
+    // {
+    //   sessionStorage.setItem('role', Role.User);
+    // }
     
   }
  
