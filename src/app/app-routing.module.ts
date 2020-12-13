@@ -14,6 +14,10 @@ import { AddTicketComponent } from './layout/component/ticket/component/add-tick
 import { ViewTicketComponent } from './layout/component/ticket/component/view-ticket/view-ticket.component';
 import { AddEmployeeComponent } from './layout/component/employee/component/add-employee/add-employee.component';
 import { EmployeeListComponent } from './layout/component/employee/component/employee-list/employee-list.component';
+import { AddBoardComponent } from './layout/component/board/component/add-board/add-board.component';
+import { BoardListComponent } from './layout/component/board/component/board-list/board-list.component';
+import { CreateCompanyComponent } from './layout/component/admin/component/create-company/create-company.component';
+import { CompanyListComponent } from './layout/component/admin/component/company-list/company-list.component';
 
 const routes: Routes = [
 
@@ -45,6 +49,26 @@ const routes: Routes = [
 
       {
         path: 'board/:boardId', component: DashboardComponent,
+        //canActivate: [AuthGuardService]
+      },
+
+      {
+        path: 'create/board', component: AddBoardComponent
+        //canActivate: [AuthGuardService]
+      },
+
+      {
+        path: 'list/board', component: BoardListComponent
+        //canActivate: [AuthGuardService]
+      },
+
+      {
+        path: 'create/company', component: CreateCompanyComponent
+        //canActivate: [AuthGuardService]
+      },
+
+      {
+        path: 'company/list', component: CompanyListComponent
         //canActivate: [AuthGuardService]
       },
      
