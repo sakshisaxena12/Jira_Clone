@@ -1,3 +1,33 @@
-<p>
-  board-list works!
-</p>
+<div class="card" style="border: 2px ;border-style: dashed;border-radius: 10px; border-color: black;">
+
+  <div class="col-sm-12">
+    <div class="card-body">
+      <h5 class="card-title"
+        style="text-align: center; font-weight: bold;margin-bottom: 20px;font-weight: bolder;font-size: 25px;">
+        BOARD LIST
+      </h5>
+
+
+      <table class="table">
+        <thead class="thead" style="background-color:#0a84ff; color: white;">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Board Title</th>
+            <th scope="col">Sub-Title</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Employees of Employee; let i=index">
+
+            <!--Update rows code dynamically here-->
+            <th scope="row">{{ i }}</th>
+            <td>{{ Employees.name }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
