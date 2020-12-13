@@ -58,6 +58,10 @@ import { MyIssuesComponent } from './layout/component/issues/component/my-issues
 import { EmployeeService } from './layout/component/employee/service/employee.service';
 import { TicketService } from './layout/component/ticket/service/ticket.service';
 import { DashboardService } from './layout/component/dashboard/service/dashboard.service';
+import { AddBoardComponent } from './layout/component/board/component/add-board/add-board.component';
+import { BoardListComponent } from './layout/component/board/component/board-list/board-list.component';
+import { CreateCompanyComponent } from './layout/component/admin/component/create-company/create-company.component';
+import { CompanyListComponent } from './layout/component/admin/component/company-list/company-list.component';
 
 
 
@@ -80,6 +84,10 @@ import { DashboardService } from './layout/component/dashboard/service/dashboard
     ViewIssuesComponent,
     CreateIssuesComponent,
     MyIssuesComponent,
+    AddBoardComponent,
+    BoardListComponent,
+    CreateCompanyComponent,
+    CompanyListComponent,
 
   ],
   imports: [
