@@ -62,6 +62,7 @@ import { AddBoardComponent } from './layout/component/board/component/add-board/
 import { BoardListComponent } from './layout/component/board/component/board-list/board-list.component';
 import { CreateCompanyComponent } from './layout/component/admin/component/create-company/create-company.component';
 import { CompanyListComponent } from './layout/component/admin/component/company-list/company-list.component';
+import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component';
 
 
 
@@ -88,6 +89,7 @@ import { CompanyListComponent } from './layout/component/admin/component/company
     BoardListComponent,
     CreateCompanyComponent,
     CompanyListComponent,
+    EditEmployeeComponent,
 
   ],
   imports: [
@@ -125,7 +127,7 @@ import { CompanyListComponent } from './layout/component/admin/component/company
 
 
   ],
-  entryComponents:[],
+  entryComponents:[EditEmployeeComponent],
 
   providers: [
       {provide: LocationStrategy, useClass: HashLocationStrategy},

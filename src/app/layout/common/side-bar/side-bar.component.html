@@ -40,38 +40,36 @@
             </li>
 
             <li>
-                <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i> Board Id</a>
+                <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i> Board</a>
                 <ul class="collapse list-unstyled" id="page3Submenu" data-accordion="false">
+                   
                     <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.boardId ]" style="color:rgb(127,131,135);">Sample 1</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/create/board']" style="color:rgb(127,131,135);">Create Board</a>
                     </li>
 
                     <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/2' ]" style="color:rgb(127,131,135);">Sample 2</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/list/board']" style="color:rgb(127,131,135);">Board List</a>
+                    </li>
+
+                   
+                </ul>
+                <hr>
+            </li>
+
+
+            <li>
+                <a href="#page4Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i> Admin</a>
+                <ul class="collapse list-unstyled" id="page4Submenu" data-accordion="false">
+                   
+                    <li>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/create/company']" style="color:rgb(127,131,135);">Create company</a>
                     </li>
 
                     <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/3' ]" style="color:rgb(127,131,135);">Sample 3</a>
+                        <a [routerLink]="['/company/' + this.CompanyId + '/company/list']" style="color:rgb(127,131,135);">company List </a>
                     </li>
 
-                    <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/4' ]" style="color:rgb(127,131,135);">Sample 4</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/5' ]" style="color:rgb(127,131,135);">Sample 5</a>
-                    </li>
-
-                    <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/6' ]" style="color:rgb(127,131,135);">Sample 6</a>
-                    </li>
-
-                    <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/7' ]" style="color:rgb(127,131,135);">Sample 7</a>
-                    </li>
-
-                    <li>
-                        <a [routerLink]="['/company/' + this.CompanyId + '/board/8' ]" style="color:rgb(127,131,135);">Sample 8</a>
-                    </li>
+                   
                 </ul>
                 <hr>
             </li>

@@ -62,6 +62,7 @@ export class AuthService {
   public manageSession(data: LoggedinUser) {
     sessionStorage.setItem('token', data.authToken);
     sessionStorage.setItem('companyId', data.companyId);
+    sessionStorage.setItem('ROLE', data.ROLE);
     // sessionStorage.setItem('refresh', data.refresh_token);
     sessionStorage.setItem('user', JSON.stringify(data));
 

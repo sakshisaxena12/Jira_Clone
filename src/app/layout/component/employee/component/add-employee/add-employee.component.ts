@@ -16,6 +16,8 @@ export class AddEmployeeComponent implements OnInit {
 
   message
 
+  fileToUpload: File = null;
+
   constructor( private errorHandlingService: ErrorHandlingService,     
     private customToastrService: CustomToastrService,
     private employeeService: EmployeeService) { 
@@ -92,6 +94,52 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  
+
+  fileupload(file:FileList)
+  {
+
+    console.log(file)
+    
+
+    this.fileToUpload = file[0];
+
+    console.log(this.fileToUpload)
+
+
+        this.employeeService.AddEmployeeInBulk(this.fileToUpload).subscribe(resp => {
+
+          console.log(resp)
+         
+          if(resp)
+          {
+            
+            this.message="Data is Added successfully"
+    
+            this.customToastrService.GetSuccessToastr(this.message, "Employee Save Status", 5000)
+    
+          }
+          else
+          {
+           
+            // this.message=resp
+          }
+          
+        }
+        ,   (error: AppResponse) => {
+          console.log(error)
+          this.errorHandlingService.errorStatus(error,"Employer Status")
+    
+    }
+        )    
+
+
+
+
+    
+    
   }
 
 }
