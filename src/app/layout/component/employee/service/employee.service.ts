@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -29,6 +29,32 @@ export class EmployeeService {
   }
 
 
+  AddEmployeeInBulk(fileToUpload: File)
+  {
+
+    console.log(fileToUpload)
+    
+    let formData = new FormData();
+    formData.append('empList', fileToUpload, fileToUpload.name);
+    console.log(formData.getAll('empList'))
+
+
+    // const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+
+    const token = sessionStorage.getItem('token')
+    const headers = new HttpHeaders({
+     
+      'authorization': `bearer ${token}`
+    })
+
+
+    return this.httpClient.post<any>(environment.webapiUrl+`api/company/${companyID}/it/addEmployees`,formData, { headers: headers })
+  }
+
+
   getEmployeForIt(): Observable<any>
   {
     // const token = sessionStorage.getItem('token')
@@ -41,6 +67,21 @@ export class EmployeeService {
     const companyID = sessionStorage.getItem('companyId');
 
     return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/it/employees`, { headers: headers })
+
+  }
+
+  ToGetBoard(): Observable<any>
+  {
+    // const token = sessionStorage.getItem('token')
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/hr/boards`, { headers: headers })
 
   }
 
@@ -59,6 +100,8 @@ export class EmployeeService {
     return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/Employee/all`, { headers: headers })
 
   }
+
+  
 
   getallemployee()
   {

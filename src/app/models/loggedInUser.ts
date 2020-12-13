@@ -4,4 +4,5 @@ export interface LoggedinUser {
     uuid:string;
     companyId: string
     message:string
+    ROLE:string
 }

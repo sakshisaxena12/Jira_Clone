@@ -14,7 +14,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
+            <th *ngIf="passwords" scope="col">Password</th>
             <th scope="col">Role</th>
           </tr>
         </thead>
@@ -23,8 +23,9 @@
             <th scope="row">{{ i }}</th>
             <td>{{ Employees.name }}</td>
             <td>{{ Employees.email }}</td>
-            <td>{{ Employees.password }}</td>
+            <td *ngIf="passwords">{{ Employees.password }}</td>
             <td>{{ Employees.role }}</td>
+            <td><a style="cursor: pointer;"  (click)="update(Employees)"><i class="material-icons" style="color: green;">&#xE254;</i>  </a></td>
           </tr>
         </tbody>
       </table>

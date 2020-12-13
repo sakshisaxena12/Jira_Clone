@@ -86,6 +86,11 @@
                       <button type="submit" [disabled]="!f.valid" class="btn btn-primary" style="text-align: center;margin-left: 45%;">
                         ADD EMPLOYEE</button>
 
+
+                        <input type="file" name="File Upload" id="txtFileUpload" 
+                        (change)="fileupload($event.target.files)"
+                          accept=".csv"/>
+
                     </div>
 
 

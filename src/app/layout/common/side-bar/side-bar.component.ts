@@ -23,7 +23,7 @@ export class SideBarComponent implements OnInit {
 
   constructor(private authService: AuthService,private router: Router,) {
 
-    this.CompanyId = 2
+    this.CompanyId = sessionStorage.getItem('companyId');
     this.boardId = 1
 
 
