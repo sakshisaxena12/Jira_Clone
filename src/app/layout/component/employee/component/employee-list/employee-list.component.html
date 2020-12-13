@@ -8,10 +8,6 @@
       </h5>
 
 
-
-
-
-
       <table class="table">
         <thead class="thead" style="background-color:#0a84ff; color: white;">
           <tr>
@@ -19,20 +15,16 @@
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Password</th>
-            <th scope="col">Date of Birth</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col">Address</th>
+            <th scope="col">Role</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let Employees of Employee; let i=index">
             <th scope="row">{{ i }}</th>
-            <td>{{ Employees.Name }}</td>
-            <td>{{ Employees.Email }}</td>
-            <td>{{ Employees.Password }}</td>
-            <td>{{ Employees.DBO }}</td>
-            <td>{{ Employees.PhoneNumber }}</td>
-            <td>{{ Employees.Address }}</td>
+            <td>{{ Employees.name }}</td>
+            <td>{{ Employees.email }}</td>
+            <td>{{ Employees.password }}</td>
+            <td>{{ Employees.role }}</td>
           </tr>
         </tbody>
       </table>

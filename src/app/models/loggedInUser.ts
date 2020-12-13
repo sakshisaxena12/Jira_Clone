@@ -1,6 +1,7 @@
 export interface LoggedinUser {
-    access_token: string,
-    userName: string,
-    refresh_token: string,
-    Id:string;
+    status: string,
+    authToken: string,
+    uuid:string;
+    companyId: string
+    message:string
 }

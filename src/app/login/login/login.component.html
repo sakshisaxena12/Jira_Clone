@@ -49,9 +49,9 @@
     <form #f="ngForm" (ngSubmit)="Login(f.value)">
       <!-- <p>Email</p> -->
 
-      <input type="text" #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName"
+      <input type="text" #email="ngModel" [(ngModel)]="login.email" name="email" id="email"
         placeholder="Email" class="form-control" required style="margin-bottom: 30px;">
-      <div class="invalid-feedback" *ngIf="userName.touched && userName.invalid">
+      <div class="invalid-feedback" *ngIf="email.touched && email.invalid">
         User Name Is Required.
       </div>
 
