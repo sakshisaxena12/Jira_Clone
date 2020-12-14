@@ -1,22 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TicketService {
+export class CommonService {
 
   constructor(private httpClient:HttpClient,private router: Router,
     private errorHandlingService: ErrorHandlingService) { }
 
 
-    TicketDataSave(task,boardId)
+    GetBoardId(): Observable<any>
   {
     // const token = sessionStorage.getItem('token')
-    // const headers = new HttpHeaders({ 
+    // const headers = new HttpHeaders({
     //   'Content-Type': 'application/json',
     //   'authorization': `bearer ${token}`
     // })
@@ -24,6 +25,9 @@ export class TicketService {
 
     const companyID = sessionStorage.getItem('companyId');
 
-    return this.httpClient.post<any>(environment.webapiUrl+`api/company/${companyID}/board/${boardId}`,task, { headers: headers })
+    return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/employee/boards`, { headers: headers })
+
   }
+
+  
 }
