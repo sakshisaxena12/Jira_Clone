@@ -63,6 +63,7 @@ import { BoardListComponent } from './layout/component/board/component/board-lis
 import { CreateCompanyComponent } from './layout/component/admin/component/create-company/create-company.component';
 import { CompanyListComponent } from './layout/component/admin/component/company-list/company-list.component';
 import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component';
+import { CommonService } from './layout/common/service/common.service';
 
 
 
@@ -135,6 +136,7 @@ import { EditEmployeeComponent } from './layout/component/employee/component/edi
     AuthGuardService,
     AuthService,
     EmployeeService,
+    CommonService,
     TicketService,
     DashboardService,
     CustomToastrService,

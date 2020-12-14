@@ -55,6 +55,52 @@ export class EmployeeService {
   }
 
 
+
+  DeleteEmployeeInBulk(fileToUpload: File)
+  {
+
+    console.log(fileToUpload)
+    
+    let formData = new FormData();
+    formData.append('empList', fileToUpload, fileToUpload.name);
+    console.log(formData.getAll('empList'))
+
+
+    // const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+
+    const token = sessionStorage.getItem('token')
+    const headers = new HttpHeaders({
+     
+      'authorization': `bearer ${token}`
+    })
+
+
+    return this.httpClient.delete(environment.webapiUrl+`api/company/${companyID}/it/removeEmployees`, { headers: headers })
+  }
+  
+
+
+  DeleteEmployee(EmployeeId): Observable<any>
+  {
+    // const token = sessionStorage.getItem('token')
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.delete<any>(environment.webapiUrl+`api/company/${companyID}/it/removeEmployee/${EmployeeId}`, { headers: headers })
+
+  }
+
+
+
+
   getEmployeForIt(): Observable<any>
   {
     // const token = sessionStorage.getItem('token')
