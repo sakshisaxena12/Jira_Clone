@@ -55,7 +55,7 @@ export class AuthService {
 
   getRole()
   {
-    return sessionStorage.getItem('role')
+    return sessionStorage.getItem('ROLE')
   }
 
 

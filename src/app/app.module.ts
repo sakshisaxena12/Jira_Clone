@@ -64,6 +64,7 @@ import { CreateCompanyComponent } from './layout/component/admin/component/creat
 import { CompanyListComponent } from './layout/component/admin/component/company-list/company-list.component';
 import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component';
 import { CommonService } from './layout/common/service/common.service';
+import { AdminService } from './layout/component/admin/service/admin.service';
 
 
 
@@ -137,6 +138,7 @@ import { CommonService } from './layout/common/service/common.service';
     AuthService,
     EmployeeService,
     CommonService,
+    AdminService,
     TicketService,
     DashboardService,
     CustomToastrService,
