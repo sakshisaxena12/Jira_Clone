@@ -20,9 +20,10 @@
 
                   <form #f="ngForm" (ngSubmit)="AddCompany(f.value)" class="was-validated">
                     <div class="form-group row" style="margin-top: 10px ;">
-                      <label for="name" class="col-sm-4 col-md-2 col-form-label">Name</label>
+                      <label for="name" class="col-sm-4 col-md-2 col-form-label">Enter Name</label>
                       <div class="col-sm-8 col-md-10">
-                        <input type="text" class="form-control" placeholder="Name" #name="ngModel" [(ngModel)]="company.name" name="name" id="name" required>
+                        <input type="text" class="form-control" placeholder="Name" #name="ngModel"
+                          [(ngModel)]="company.name" name="name" id="name" required>
                         <div class="invalid-feedback" *ngIf="name.touched && name.invalid">
                           Email Is Required.
                         </div>
@@ -37,7 +38,8 @@
 
                       <label for="email5" class="col-sm-2 col-md-2 col-form-label"
                         style="text-align: right;">Code</label>
-                      <input type="text" class="col-sm-2 col-md-2 form-control" placeholder="Code" #code="ngModel" [(ngModel)]="company.code" name="code" id="code" required>
+                      <input type="text" class="col-sm-2 col-md-2 form-control" placeholder="Code" #code="ngModel"
+                        [(ngModel)]="company.code" name="code" id="code" required>
                       <div class="invalid-feedback" *ngIf="code.touched && code.invalid">
                         Email Is Required.
                       </div>
@@ -45,7 +47,8 @@
 
                       <label for="number" class="col-sm-10 col-md-2 col-form-label" style="text-align: right;">Phone
                         Number</label>
-                      <input type="number" class="col-sm-4 col-md-2 form-control" placeholder="Number" #number="ngModel" [(ngModel)]="company.number" name="number" id="number" required>
+                      <input type="number" class="col-sm-4 col-md-2 form-control" placeholder="Number" #number="ngModel"
+                        [(ngModel)]="company.number" name="number" id="number" required>
                       <div class="invalid-feedback" *ngIf="number.touched && number.invalid">
                         Email Is Required.
                       </div>
@@ -64,20 +67,19 @@
                       </label>
                       <br>
 
-                      <label for="" class="col-sm-1col-md-1 col-form-label"></label>
-                      <label for="userIT" class="col-sm-4 col-md-3 col-form-label" style="text-align: right;">Email of
+                      <label for="userIT" class="col-sm-4 col-md-2 col-form-label">Email of
                         IT</label>
-                      <input type="text" class="col-sm-4 col-md-6 form-control" placeholder="Email of IT" #userIT="ngModel" [(ngModel)]="company.userIT" name="userIT" id="userIT" required>
+                      <input type="text" class="col-sm-4 col-md-4 form-control" placeholder="Enter Email"
+                        #userIT="ngModel" [(ngModel)]="company.userIT" name="userIT" id="userIT" required>
                       <div class="invalid-feedback" *ngIf="userIT.touched && userIT.invalid">
                         Email Is Required.
                       </div>
 
-                      <br><br>
 
-                      <label for="" class="col-sm-1col-md-1 col-form-label"></label>
-                      <label for="passwordIT" class="col-sm-4 col-md-3 col-form-label" style="text-align: right;">password of
+                      <label for="passwordIT" class="col-sm-4 col-md-2 col-form-label">Password of
                         IT</label>
-                      <input type="text" class="col-sm-4 col-md-6 form-control" placeholder="Email of IT" #passwordIT="ngModel" [(ngModel)]="company.passwordIT" name="passwordIT" id="userIT" required>
+                      <input type="text" class="col-sm-4 col-md-4 form-control" placeholder="Enter Password"
+                        #passwordIT="ngModel" [(ngModel)]="company.passwordIT" name="passwordIT" id="userIT" required>
                       <div class="invalid-feedback" *ngIf="passwordIT.touched && passwordIT.invalid">
                         Email Is Required.
                       </div>
@@ -86,18 +88,19 @@
                       <br><br>
 
 
-                      <label for="" class="col-sm-1 col-md-1 col-form-label"></label>
-                      <label for="userHR" class="col-sm-4 col-md-3 col-form-label" style="text-align: right;">Email of
+                      <label for="userHR" class="col-sm-4 col-md-2 col-form-label">Email of
                         HR</label>
-                      <input type="text" class="col-sm-4 col-md-6 form-control" placeholder="Email of HR" #userHR="ngModel" [(ngModel)]="company.userHR" name="userHR" id="userHR" required>
+                      <input type="text" class="col-sm-4 col-md-4 form-control" placeholder="Enter Email"
+                        #userHR="ngModel" [(ngModel)]="company.userHR" name="userHR" id="userHR" required>
                       <div class="invalid-feedback" *ngIf="userHR.touched && userHR.invalid">
                         Email Is Required.
                       </div>
 
-                      <label for="" class="col-sm-1col-md-1 col-form-label"></label>
-                      <label for="passwordHR" class="col-sm-4 col-md-3 col-form-label" style="text-align: right;">password of
+                      <label for="passwordHR" class="col-sm-4 col-md-2 col-form-label">Password of
                         HR</label>
-                      <input type="text" class="col-sm-4 col-md-6 form-control" placeholder="Email of IT" #passwordHR="ngModel" [(ngModel)]="company.passwordHR" name="passwordHR" id="passwordHR" required>
+                      <input type="text" class="col-sm-4 col-md-4 form-control" placeholder="Enter Password"
+                        #passwordHR="ngModel" [(ngModel)]="company.passwordHR" name="passwordHR" id="passwordHR"
+                        required>
                       <div class="invalid-feedback" *ngIf="passwordHR.touched && passwordHR.invalid">
                         Email Is Required.
                       </div>
@@ -107,11 +110,14 @@
 
                     </div>
 
+
+                    <br>
                     <div class="form-group row">
                       <label for="" class="col-sm-4 col-md-2 col-form-label">Company Logo</label>
                       <div class="col-sm-8 col-md-10">
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" (change)="imagefileupload($event.target.files)" id="customFile">
+                          <input type="file" class="custom-file-input" (change)="imagefileupload($event.target.files)"
+                            id="customFile">
                           <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                       </div>

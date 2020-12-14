@@ -18,7 +18,7 @@
             <th scope="col">Role</th>
             <th scope="col">edit</th>
             <th scope="col">delete</th>
-            
+
           </tr>
         </thead>
         <tbody>
@@ -28,8 +28,10 @@
             <td>{{ Employees.email }}</td>
             <td *ngIf="passwords">{{ Employees.password }}</td>
             <td>{{ Employees.role }}</td>
-            <td><a style="cursor: pointer;"  (click)="update(Employees)"><i class="material-icons" style="color: green;">&#xE254;</i>  </a></td>
-            <td><a style="cursor: pointer;"  (click)="delete(Employees)"><i class="fa fa-trash-o" aria-hidden="true" style="color: green;"></i> </a></td>
+            <td><a style="cursor: pointer;" (click)="update(Employees)"><i class="material-icons"
+                  style="color: green;">&#xE254;</i> </a></td>
+            <td><a style="cursor: pointer;" (click)="delete(Employees)"><i class="fa fa-trash-o" aria-hidden="true"
+                  style="color: green;"></i> </a></td>
 
           </tr>
 
@@ -39,8 +41,10 @@
             <td>jhgg</td>
             <!-- <td>{{ Employees.password }}</td> -->
             <td>ggjgfyfh</td>
-            <td><a style="cursor: pointer;"  (click)="update(Employees)"><i class="material-icons" style="color: green;">&#xE254;</i>  </a></td>
-            <td><a style="cursor: pointer;"  (click)="delete(Employees)"><i class="fa fa-trash-o" aria-hidden="true" style="color: green;"></i> </a></td>
+            <td><a style="cursor: pointer;" (click)="update(Employees)"><i class="material-icons"
+                  style="color: green;">&#xE254;</i> </a></td>
+            <td><a style="cursor: pointer;" (click)="delete(Employees)"><i class="fa fa-trash-o" aria-hidden="true"
+                  style="color: green;"></i> </a></td>
 
           </tr>
         </tbody>
@@ -48,16 +52,14 @@
 
 
       <!-- this is for add the employee -->
-      <input type="file" name="File Upload" id="txtFileUpload" 
-                        (change)="fileupload($event.target.files)"
-                          accept=".csv"/>  
+      <input type="file" name="File Upload" id="txtFileUpload" (change)="fileupload($event.target.files)"
+        accept=".csv" />
 
 
 
-<!-- this is for delete the employee -->
-                          <input type="file" name="File Upload" id="txtFileUpload" 
-                        (change)="deleteEmployee($event.target.files)"
-                          accept=".csv"/>
+      <!-- this is for delete the employee -->
+      <input type="file" name="File Upload" id="txtFileUpload" (change)="deleteEmployee($event.target.files)"
+        accept=".csv" />
 
     </div>
   </div>
