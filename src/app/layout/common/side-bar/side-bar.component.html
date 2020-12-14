@@ -22,24 +22,21 @@
             </li>
               
 
-            <li>
+            <li *ngIf="ADMIN_IT || ADMIN_HR || SCRUM_MASTER">
                 <a href="#page2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i>  Employee</a>
                 <ul class="collapse list-unstyled" id="page2Submenu" data-accordion="false">
-                    <li>
-                        <!-- company/2/Add/Employee -->
-                        <!-- <a (click)="routersToRedirect('Add/Employee')" style="color:rgb(127,131,135);"> Add Emplopyee</a> -->
-
+                    <li *ngIf="ADMIN_IT || ADMIN_HR">
                         <a [routerLink]="['/company/' + this.CompanyId + '/Add/Employee' ]" style="color:rgb(127,131,135);"> Add Emplopyee</a>
 
                     </li>
-                    <li>
+                    <li *ngIf="ADMIN_IT || ADMIN_HR || SCRUM_MASTER">
                         <a [routerLink]="['/company/' + this.CompanyId + '/Employee/List' ]" style="color:rgb(127,131,135);"> Emplopyee List</a>
                     </li>
                 </ul>
                 <hr>
             </li>
 
-            <li>
+            <li *ngIf="ADMIN_HR">
                 <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i> Board</a>
                 <ul class="collapse list-unstyled" id="page3Submenu" data-accordion="false">
                    
@@ -57,7 +54,7 @@
             </li>
 
 
-            <li>
+            <li *ngIf="OWNER">
                 <a href="#page4Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i> Admin</a>
                 <ul class="collapse list-unstyled" id="page4Submenu" data-accordion="false">
                    

@@ -15,23 +15,22 @@
             <th scope="col">Name</th>
             <th scope="col">Code</th>
             <th scope="col">Phone Number</th>
-            <th scope="col">Email of IT</th>
-            <th scope="col">Password of IT</th>
-            <th scope="col">Email of HR</th>
-            <th scope="col">Password of HR</th>
+            <!-- <th scope="col">Email of IT</th>
+            <th scope="col">Email of HR</th> -->
             <th scope="col">Logo</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let Employees of Employee; let i=index">
+          <tr *ngFor="let companyLists of companyList; let i=index">
 
             <!--Update rows code dynamically here-->
 
             <th scope="row">{{ i }}</th>
-            <td>{{ Employees.name }}</td>
-            <td>{{ Employees.email }}</td>
-            <td>{{ Employees.password }}</td>
-            <td>{{ Employees.role }}</td>
+            <td>{{ companyLists.name }}</td>
+            <td>{{ companyLists.code }}</td>
+            <td>{{ companyLists.number }}</td>
+            <!-- <td>{{ Employees.password }}</td> -->
+            <td>{{ companyLists.logo }}</td>
           </tr>
         </tbody>
       </table>

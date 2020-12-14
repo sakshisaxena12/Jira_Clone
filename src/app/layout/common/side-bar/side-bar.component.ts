@@ -16,44 +16,53 @@ export class SideBarComponent implements OnInit {
   CompanyId;
   boardId;
 
-  Admin= false;
-  HR=false;
-  Manager=false;
-  User=false;
+  ADMIN_IT= false;
+  ADMIN_HR=false;
+  OWNER=false;
+  SCRUM_MASTER=false;
+  USER=false;
 
   constructor(private authService: AuthService,private router: Router,) {
 
     this.CompanyId = sessionStorage.getItem('companyId');
     this.boardId = 1
 
+    // this.roles = sessionStorage.getItem('ROLE');
+    // console.log(this.roles)
 
 
-    this.Admin= false;
-    this.HR=false;
-    this.Manager=false;
-    this.User=false;
+
+    this.ADMIN_IT= false;
+    this.ADMIN_HR=false;
+    this.OWNER=false;
+    this.SCRUM_MASTER=false;
+    this.USER=false;
 
     this.roles = authService.getRole()
 
-    if(Role.Admin == authService.getRole())
+    if(Role.ADMIN_IT == authService.getRole())
     {
-      this.Admin=true
+      this.ADMIN_IT=true
     }
-    if(Role.HR == authService.getRole())
+    if(Role.ADMIN_HR == authService.getRole())
     {
-      this.HR=true
+      this.ADMIN_HR=true
     }
-    if(Role.Manager == authService.getRole())
+    if(Role.OWNER == authService.getRole())
     {
-      this.Manager=true
+      this.OWNER=true
     }
-    if(Role.User == authService.getRole())
+    if(Role.SCRUM_MASTER == authService.getRole())
     {
-      this.User=true
+      this.SCRUM_MASTER=true
+    }
+
+    if(Role.USER == authService.getRole())
+    {
+      this.USER=true
     }
 
     console.log(this.roles)
-
 
 
    }
