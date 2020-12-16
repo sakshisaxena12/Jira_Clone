@@ -2,33 +2,32 @@
 
 <div class="card" style="border: 2px ;border-style: dashed;border-radius: 10px; border-color: black;">
 
-    <div class="col-sm-12">
-        <div class="card-body">
-            <h5 class="card-title"
-                style="text-align: center; font-weight: bold;margin-bottom: 20px;font-weight: bolder;font-size: 25px;">
-                CREATE BOARD
-            </h5>
+  <div class="col-sm-12">
+    <div class="card-body">
+      <h5 class="card-title"
+        style="text-align: center; font-weight: bold;margin-bottom: 20px;font-weight: bolder;font-size: 25px;">
+        CREATE BOARD
+      </h5>
 
-            <div class="col-lg-12">
-                <div class="card"
-                    style="background-color: lightgrey;border: 0px; box-shadow: none; margin-bottom: 20px;">
-                    <div class="card-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-
+      <div class="col-lg-12">
+        <div class="card" style="background-color: lightgrey;border: 0px; box-shadow: none; margin-bottom: 20px;">
+          <div class="card-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
 
 
-                                    <form #f="ngForm" (ngSubmit)="createBoard(f.value)">
-                                        <div class="form-group row" style="margin-top: 10px ;">
-                                            <label for="title" class="col-sm-4 col-md-2 col-form-label">Title</label>
-                                            <div class="col-sm-8 col-md-10">
-                                                <input type="text" class="form-control" #title="ngModel" [(ngModel)]="boards.title" name="title" id="title" required
-                                                    placeholder="Title">
-                                            </div>
-                                        </div>
 
-                                        <!-- <div class="form-group row">
+                  <form #f="ngForm" (ngSubmit)="createBoard(f.value)">
+                    <div class="form-group row" style="margin-top: 10px ;">
+                      <label for="title" class="col-sm-4 col-md-2 col-form-label">Title</label>
+                      <div class="col-sm-8 col-md-10">
+                        <input type="text" class="form-control" #title="ngModel" [(ngModel)]="boards.title" name="title"
+                          id="title" required placeholder="Title">
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group row">
                                             <label for="subTitle"
                                                 class="col-sm-4 col-md-2 col-form-label">SubTitle</label>
                                             <div class="col-sm-8 col-md-10">
@@ -36,81 +35,87 @@
                                                     placeholder="Sub-Title">
                                             </div>
                                         </div> -->
-
-
-                                        <p>Main Fields For Tickets</p>
-
-
-                                        <table class="table">
-                                            <thead class="thead" style="background-color:#0a84ff; color: white;">
-                                              <tr>
-                                                
-                                                <th scope="col">Field</th>
-                                                <th scope="col">Type</th>
-                                                
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr *ngFor="let Mainfields of mainfields; let i=index">
-                                                <td>{{ Mainfields.Title}}</td>
-                                                <td>{{ Mainfields.Type}}</td>
-                                        
-                                              </tr>
-                                    
-                                              
-                                            </tbody>
-                                        </table>
-
-                                      <button type="button" (click)="mainfield()">Add</button>
-
-
-                                        <p>Sub Fields For Tickets</p>
-                                        <table class="table">
-                                            <thead class="thead" style="background-color:#0a84ff; color: white;">
-                                              <tr>
-                                                
-                                                <th scope="col">Field</th>
-                                                <th scope="col">Type</th>
-                                                
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr *ngFor="let SubFields of subFields; let i=index">
-
-                                                <td>{{ SubFields.Title }}</td>
-                                                <td>{{ SubFields.Type }}</td>
-
-                                              </tr>
-                                    
-                                              
-                                            </tbody>
-                                          </table>
-
-                                          <button type="button" (click)="subfield()">Add</button>
+                    <label for="title" class="col-sm-12 col-md-12 col-form-label" style="text-align: left;">Main Fields
+                      For Tickets:</label>
 
 
 
 
+                    <table class="table" style="background-color:white; border-radius: 10px;">
+                      <thead class="thead" style="background-color:#0a84ff; color: white;border-radius: 10px;">
+                        <tr>
 
-                                        <br>
-                                        <br>
+                          <th scope=" col">Field</th>
+                          <th scope="col">Type</th>
 
-                                        <div class="form-group row">
-                                            <button type="submit" class="btn btn-primary"
-                                                style="text-align: center;margin-left: 40%;">
-                                                CREATE BOARD</button>
-                                        </div>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let Mainfields of mainfields; let i=index">
+                          <td>{{ Mainfields.Title}}</td>
+                          <td>{{ Mainfields.Type}}</td>
+
+                        </tr>
 
 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                      </tbody>
+                    </table>
+
+                    <button type="button" (click)="mainfield()" class="btn btn-secondary" style="text-align: center;"><i
+                        class="fa fa-plus"></i>
+                    </button>
+                    <br>
+                    <br>
+                    <label for="title" class="col-sm-12 col-md-12 col-form-label" style="text-align: left;">Sub Fields
+                      For Tickets:</label>
+
+                    <table class="table" style="background-color:white; border-radius: 10px;">
+                      <thead class="thead" style="background-color:#0a84ff; color: white;">
+                        <tr>
+
+                          <th scope="col">Field</th>
+                          <th scope="col">Type</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let SubFields of subFields; let i=index">
+
+                          <td>{{ SubFields.Title }}</td>
+                          <td>{{ SubFields.Type }}</td>
+
+                        </tr>
+
+
+                      </tbody>
+                    </table>
+
+                    <button type="button" (click)="subfield()" class="btn btn-secondary" style="text-align: center;"><i
+                        class="fa fa-plus"></i>
+                    </button>
+
+
+
+
+
+                    <br>
+                    <br>
+
+                    <div class="form-group row">
+                      <button type="submit" class="btn btn-primary" style="text-align: center;margin-left: 40%;">
+                        CREATE BOARD</button>
                     </div>
+
+
+                  </form>
                 </div>
-
-
+              </div>
             </div>
+          </div>
         </div>
+
+
+      </div>
     </div>
+  </div>
 </div>
