@@ -15,6 +15,7 @@ export class AddEmployeeComponent implements OnInit {
   employee: Employee
 
   message
+  blob
 
   fileToUpload: File = null;
 
@@ -53,9 +54,9 @@ export class AddEmployeeComponent implements OnInit {
       {
         // this.successStatus=true;
         // this.dangerStatus=false;
-        this.message="Data is Added successfully"
+        this.message="Employee is Added successfully"
 
-        this.customToastrService.GetSuccessToastr(this.message, "Employee Save Status", 5000)
+        this.customToastrService.GetSuccessToastr(this.message, "Employee Status", 5000)
 
 
         setTimeout(()=>
@@ -86,7 +87,7 @@ export class AddEmployeeComponent implements OnInit {
     }
     ,   (error: AppResponse) => {
       console.log(error)
-      this.errorHandlingService.errorStatus(error,"Employer Status")
+      this.errorHandlingService.errorStatus(error,"Employee Status")
 
 }
 )
@@ -109,14 +110,12 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.fileToUpload)
 
 
-        this.employeeService.AddEmployeeInBulk(this.fileToUpload).subscribe(resp => {
-
-          console.log(resp)
+        this.employeeService.AddEmployeeInBulk(this.fileToUpload).subscribe((resp) => {
          
           if(resp)
           {
             
-            this.message="Data is Added successfully"
+            this.message="Employe In Bilk Added successfully"
     
             this.customToastrService.GetSuccessToastr(this.message, "Employee Save Status", 5000)
     

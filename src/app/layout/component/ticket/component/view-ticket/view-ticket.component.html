@@ -135,7 +135,7 @@
                       <div class="form-group row" style="margin-top: 30px;">
                         <label>Dev</label>
                         <div class="col-sm-8 col-md-10">
-                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Developer}}" [disabled]="!editable">
+                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Developer}}">
                             <option value= "UNASSIGNED">UNASSIGNED</option>
                             <option *ngFor="let dropdownLists of employee" [value]=dropdownLists.id>{{dropdownLists.name}}</option>
                            </select>
@@ -146,7 +146,7 @@
                       <div class="form-group row" style="margin-top: 30px;">
                         <label>QA</label>
                         <div class="col-sm-8 col-md-10">
-                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Qa}}" [disabled]="!editable">
+                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Qa}}" >
                             <option value= "UNASSIGNED">UNASSIGNED</option>
                             <option *ngFor="let dropdownLists of employee" [value]=dropdownLists.id>{{dropdownLists.name}}</option>
                            </select>
@@ -157,7 +157,7 @@
                       <div class="form-group row" style="margin-top: 30px;">
                         <label>PM</label>
                         <div class="col-sm-8 col-md-10">
-                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Pm}}" [disabled]="!editable">
+                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Pm}}" >
                             <option value= "UNASSIGNED">UNASSIGNED</option>
                             <option *ngFor="let dropdownLists of employee" [value]=dropdownLists.id>{{dropdownLists.name}}</option>
                            </select>

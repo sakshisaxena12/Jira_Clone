@@ -44,7 +44,7 @@ export class EmployeeService {
   }
 
 
-  AddEmployeeInBulk(fileToUpload: File)
+  AddEmployeeInBulk(fileToUpload: File): Observable<any>
   {
 
     console.log(fileToUpload)
@@ -61,7 +61,7 @@ export class EmployeeService {
 
     const token = sessionStorage.getItem('token')
     const headers = new HttpHeaders({
-     
+      responseType: 'blob' as 'json',
       'authorization': `bearer ${token}`
     })
 
