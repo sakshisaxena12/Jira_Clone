@@ -1,0 +1,19 @@
+[
+    {
+        "mainfieldsForTickets":[
+                {"Title": "title", "Type": "Text"},
+                {"Title": "subTitle", "Type": "Text"},
+                {"Title": "description", "Type": "Text"},
+                {"Title": "main1", "Type": "Text"},
+                {"Title": "main2", "Type": "List", "Item": ["25", "26", "24"]}
+                
+        ],
+
+        "subFieldsForTickets":[
+            {"Title": "sub1", "Type": "Text"},
+            {"Title": "sub2", "Type": "List", "Item": ["12", "25", "26", "8"]}
+            
+    ]
+    }
+
+]

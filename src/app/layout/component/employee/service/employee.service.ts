@@ -29,6 +29,21 @@ export class EmployeeService {
   }
 
 
+  updateTheRole(role)
+  {
+    // const token = sessionStorage.getItem('token')
+    // const headers = new HttpHeaders({ 
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.post<any>(environment.webapiUrl+`api/company/${companyID}/hr/assignRole`,role, { headers: headers })
+  }
+
+
   AddEmployeeInBulk(fileToUpload: File)
   {
 
@@ -72,13 +87,14 @@ export class EmployeeService {
 
 
     const token = sessionStorage.getItem('token')
+
     const headers = new HttpHeaders({
      
       'authorization': `bearer ${token}`
     })
 
 
-    return this.httpClient.delete(environment.webapiUrl+`api/company/${companyID}/it/removeEmployees`, { headers: headers })
+    return this.httpClient.post(environment.webapiUrl+`api/company/${companyID}/it/removeEmployees`, formData, { headers: headers })
   }
   
 
@@ -144,6 +160,53 @@ export class EmployeeService {
     const companyID = sessionStorage.getItem('companyId');
 
     return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/Employee/all`, { headers: headers })
+
+  }
+
+
+  toGetAllBoardsForSM(): Observable<any>
+  {
+    // const token = sessionStorage.getItem('token')
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/board/all/master/myBoards`, { headers: headers })
+
+  }
+
+
+  toGetTeamInsideBoard(boardID): Observable<any>
+  {
+    // const token = sessionStorage.getItem('token')
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/board/${boardID}/empInsideBoard`, { headers: headers })
+
+  }
+
+  toAddTeamMemmber(boardID, data)
+  {
+    // const token = sessionStorage.getItem('token')
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.post<any>(environment.webapiUrl+`api/company/${companyID}/board/${boardID}/master/addToBoard`, data, { headers: headers })
 
   }
 

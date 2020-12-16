@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item paddings">
-        <a class="nav-link" [routerLink]="['/company/' + this.CompanyId + '/board/1/ticket/create' ]">Add Ticket</a>
+        <a class="nav-link" [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/create' ]">Add Ticket</a>
       </li>
 
       <li class="nav-item paddings">
@@ -37,14 +37,15 @@
           Board Id
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/1']">sample 1</a>
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/2']">sample 2</a>
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/3']">sample 3</a>
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/4']">sample 4</a>
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/5']">sample 5</a>
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/6']">sample 6</a>
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/7']">sample 7</a>
-          <a class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/8']">sample 8</a>
+
+          
+          
+          <a *ngFor="let dropdownLists of board" class="dropdown-item" (click)="passTheRoute(dropdownLists.id)" [routerLink]="['/company/' + this.CompanyId + '/board/' + dropdownLists.id]">{{dropdownLists.title}}</a>
+          <a  class="dropdown-item" (click)="passTheRoute(1)" [routerLink]="['/company/' + this.CompanyId + '/board/1']">1</a>
+          <a  class="dropdown-item" (click)="passTheRoute(2)" [routerLink]="['/company/' + this.CompanyId + '/board/2']">2</a>
+          <a  class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/3']">3</a>
+         
+
         </div>
       </li>
     </ul>
