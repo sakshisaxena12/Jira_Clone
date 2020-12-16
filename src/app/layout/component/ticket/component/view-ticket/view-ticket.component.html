@@ -7,9 +7,19 @@
       <div class="card" style="border: 2px ;border:none;border-radius: 10px; border-color: black;">
         <div class="col-sm-12">
           <div class="card-body">
+            
             <h5 class="card-title" style="font-weight: bold;margin-bottom: 20px;font-weight: bolder;font-size: 25px;">
-              TITLE OF THE TICKET
+              {{ newboardDetails.Title }}
             </h5>
+
+            <h5 class="card-title" style="font-weight: bold;margin-bottom: 20px;font-weight: bolder;font-size: 15px;">
+              {{ newboardDetails.SubTitle }}
+            </h5>
+
+            
+
+
+            
             <div class="col-lg-12">
               <button
                 style="font-size:15px;border: none;background-color: lightgrey;margin-bottom: 30px;margin-right: 20px; padding: 7px;font-weight: bold;">
@@ -20,7 +30,15 @@
               <button
                 style="font-size:15px;border: none;background-color: lightgrey;margin-bottom: 30px;margin-right: 20px; padding: 7px;font-weight: bold;">
                 <i class="fa fa-link"></i>&nbsp; Link issues</button>
+
+                <button
+                style="font-size:15px;border: none;background-color: lightgrey;margin-bottom: 30px;margin-right: 20px; padding: 7px;font-weight: bold;">
+                <i class="fa fa-edit"></i>&nbsp; <a [routerLink]="['/company/' + this.companyId + '/board/' + this.boardId + '/ticket/edit/' + this.ticketId]">Edit</a>
+              </button>
+
             </div>
+
+
             <div class="col-lg-12">
               <div class="card"
                 style="border: 2px ;border:dashed;border-radius: 10px; border-color: black; box-shadow: none; margin-bottom: 20px;">
@@ -32,7 +50,7 @@
                           <div class="form-group">
                             <label for="exampleFormControlTextarea1">Description</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                              placeholder="Enter Description"
+                              placeholder="Enter Description" value="{{ newboardDetails.Description }}"
                               style="background-color: lightgrey;border-radius: 10px;"></textarea>
                           </div>
                         </form>
@@ -101,17 +119,59 @@
                     <div class="col-12">
 
 
-
-                      <div class="custom-control custom-switch" style="margin-top: 30px;">
-                        <input type="checkbox" class="custom-control-input" id="customSwitches1" checked="">
-                        <label class="custom-control-label" for="customSwitches1">STATUS</label>
+                      <div class="form-group row" style="margin-top: 30px;">
+                        <label >Status</label>
+                        <div class="col-sm-8 col-md-10">  
+                            <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton" class="custom-select" type="text" value = "{{newboardDetails.Status}}" [disabled]="!editable">
+                              <option class="dropdown-item" value="READY">Ready</option>
+                              <option class="dropdown-item" value="DEV_IN_PROGRESS">dev in Progress</option>
+                              <option class="dropdown-item" value="QA_IN_PROGRESS">QA in Progress</option>
+                              <option class="dropdown-item" value="DONE">Done</option>         
+                             </select>
+                        </div>
                       </div>
 
+
+                      <div class="form-group row" style="margin-top: 30px;">
+                        <label>Dev</label>
+                        <div class="col-sm-8 col-md-10">
+                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Developer}}" [disabled]="!editable">
+                            <option value= "UNASSIGNED">UNASSIGNED</option>
+                            <option *ngFor="let dropdownLists of employee" [value]=dropdownLists.id>{{dropdownLists.name}}</option>
+                           </select>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row" style="margin-top: 30px;">
+                        <label>QA</label>
+                        <div class="col-sm-8 col-md-10">
+                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Qa}}" [disabled]="!editable">
+                            <option value= "UNASSIGNED">UNASSIGNED</option>
+                            <option *ngFor="let dropdownLists of employee" [value]=dropdownLists.id>{{dropdownLists.name}}</option>
+                           </select>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row" style="margin-top: 30px;">
+                        <label>PM</label>
+                        <div class="col-sm-8 col-md-10">
+                          <select class="col-sm-8 col-md-10 dropdown-menu" aria-labelledby="dropdownMenuButton"  class="custom-select" type="text" value = "{{newboardDetails.Pm}}" [disabled]="!editable">
+                            <option value= "UNASSIGNED">UNASSIGNED</option>
+                            <option *ngFor="let dropdownLists of employee" [value]=dropdownLists.id>{{dropdownLists.name}}</option>
+                           </select>
+                        </div>
+                      </div>
+
+                      <label for="exampleFormControlTextarea1">Priority</label>
                       <br>
+                      <i class="fa fa-arrow-up" [style.color]= "newboardDetails.color"></i> &nbsp;
+                      <label for="exampleFormControlTextarea1">{{ newboardDetails.Priority }}</label>
 
 
 
-                      <form>
+                      <!-- <form>
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">Assignee</label>
                           <br>
@@ -141,7 +201,7 @@
 
                         </div>
 
-                      </form>
+                      </form> -->
 
                     </div>
                   </div>

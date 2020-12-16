@@ -16,6 +16,8 @@ export class CommonService {
 
     GetBoardId(): Observable<any>
   {
+
+    console.log("to check")
     // const token = sessionStorage.getItem('token')
     // const headers = new HttpHeaders({
     //   'Content-Type': 'application/json',
@@ -26,6 +28,17 @@ export class CommonService {
     const companyID = sessionStorage.getItem('companyId');
 
     return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/employee/boards`, { headers: headers })
+
+  }
+
+
+  GetEmployee(id): Observable<any>
+  {
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.get<any>(environment.webapiUrl+`api/company/${companyID}/employee/${id}`, { headers: headers })
 
   }
 

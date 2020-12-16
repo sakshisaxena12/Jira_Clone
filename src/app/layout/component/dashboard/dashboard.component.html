@@ -24,16 +24,75 @@
                 <h5 class="card-title" style="text-align: center; font-weight: bold;">READY</h5>
 
                 <div class="col-lg-12" *ngFor="let Readys of Ready;">
-                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + Readys.TicketID]">
+                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + Readys.id]">
                         <div class="card"
                             style="background-color: lightgrey;border: 0px; box-shadow: none; font-size: 10px; margin-bottom: 20px;">
                             <div class="card-body">
-                                <h5 class="card-title" style="text-align: center; font-size: 15px; color: black; text-decoration: none;">{{ Readys.TicketName }}</h5>
-                                <label for="fname" style="color: black;">Status</label> &nbsp;
-                                <input type="text" id="fname" name="fname" value="{{ Readys.Status }}" style="width: 100px; color: black;">
+                                
+
+                                <ng-container *ngFor="let mainFieldsValues of Readys.mainFieldsValue;">
+                                    <h5 *ngIf="toCheckTitleOrNot(mainFieldsValues)" class="card-title" style="text-align: center; font-size: 15px; color: black; text-decoration: none;">{{ mainFieldsValues.Value }}</h5>
+                                </ng-container>
+                                
+
+                                <label for="fname" style="color: black;">Sub Title</label> &nbsp;
+
+                                <ng-container *ngFor="let mainFieldsValues of Readys.mainFieldsValue;">
+
+                                <input *ngIf="toCheckSubtitleOrNot(mainFieldsValues)" type="text" id="fname" name="fname1" value="{{ mainFieldsValues.Value }}" style="width: 100px; color: black;">
+                                
+                                </ng-container>
+
                                 <br>
-                                <label for="fname" style="color: black;">Type</label> &nbsp;&nbsp;&nbsp;
-                                <input type="text" id="fname" name="fname" value="{{ Readys.Type }}" style="width: 100px; color: black;">
+
+                                <label for="fname" style="color: black;">Priority</label> &nbsp;&nbsp;&nbsp;
+
+                                <ng-container *ngFor="let subFieldsValues of Readys.subFieldsValue;">
+                                    <input *ngIf="toCheckPriorityOrNot(subFieldsValues)" type="text" id="fname" name="fname1" value="{{ subFieldsValues.Value }}" style="width: 100px; color: black;"> 
+                                </ng-container>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-sm-3">
+        <div class="card" style="border: 2px ;border-style: dashed;border-radius: 10px; border-color: black;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center; font-weight: bold;">DEV IN PROGRESS</h5>
+
+                <div class="col-lg-12" *ngFor="let Devs of Dev;">
+                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + Devs.id]">
+                        <div class="card"
+                            style="background-color: lightgrey;border: 0px; box-shadow: none; font-size: 10px; margin-bottom: 20px;">
+                            <div class="card-body">
+
+                                <ng-container *ngFor="let mainFieldsValues of Devs.mainFieldsValue;">
+                                    <h5 *ngIf="toCheckTitleOrNot(mainFieldsValues)" class="card-title" style="text-align: center; font-size: 15px; color: black; text-decoration: none;">{{ mainFieldsValues.Value }}</h5>
+                                </ng-container>
+                                
+
+                                <label for="fname" style="color: black;">Sub Title</label> &nbsp;
+
+                                <ng-container *ngFor="let mainFieldsValues of Devs.mainFieldsValue;">
+
+                                <input *ngIf="toCheckSubtitleOrNot(mainFieldsValues)" type="text" id="fname" name="fname1" value="{{ mainFieldsValues.Value }}" style="width: 100px; color: black;">
+                                
+                                </ng-container>
+
+                                <br>
+
+                                <label for="fname" style="color: black;">Priority</label> &nbsp;&nbsp;&nbsp;
+                                
+                                <ng-container *ngFor="let subFieldsValues of Devs.subFieldsValue;">
+                                    <input *ngIf="toCheckPriorityOrNot(subFieldsValues)" type="text" id="fname" name="fname1" value="{{ subFieldsValues.Value }}" style="width: 100px; color: black;"> 
+                                </ng-container>
                             </div>
                         </div>
                     </a>
@@ -47,56 +106,44 @@
     <div class="col-sm-3">
         <div class="card" style="border: 2px ;border-style: dashed;border-radius: 10px; border-color: black;">
             <div class="card-body">
-                <h5 class="card-title" style="text-align: center; font-weight: bold;">DEV IN PROGRESS</h5>
-
-                <div class="col-lg-12" *ngFor="let Devs of Dev;">
-                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + Devs.TicketID]">
-
-                    <div class="card"
-                        style="background-color: lightgrey;border: 0px; box-shadow: none; font-size: 10px; margin-bottom: 20px;">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center; font-size: 15px; color: black;">{{ Devs.TicketName }}</h5>
-                            <label for="fname" style="color: black;">Status</label> &nbsp;
-                            <input type="text" id="fname" name="fname" value="{{ Devs.Status }}" style="width: 100px; color: black;">
-                            <br>
-                            <label for="fname" style="color: black;">Type</label> &nbsp;&nbsp;&nbsp;
-                            <input type="text" id="fname" name="fname" value="{{ Devs.Status }}" style="width: 100px; color: black;">
-                        </div>
-                    </div>
-                    </a>
-                </div>
-                
-
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-sm-3">
-        <div class="card" style="border: 2px ;border-style: dashed;border-radius: 10px; border-color: black;">
-            <div class="card-body">
                 <h5 class="card-title" style="text-align: center; font-weight: bold;">QA</h5>
 
                 <div class="col-lg-12" *ngFor="let QandAs of QandA;">
-                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + QandAs.TicketID]">
+                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + QandAs.id]">
+                        <div class="card"
+                            style="background-color: lightgrey;border: 0px; box-shadow: none; font-size: 10px; margin-bottom: 20px;">
+                            <div class="card-body">
 
-                    <div class="card"
-                        style="background-color: lightgrey;border: 0px; box-shadow: none; font-size: 10px; margin-bottom: 20px;">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center; font-size: 15px; color: black;">{{ QandAs.TicketName }}</h5>
-                            <label for="fname" style="color: black;">Status</label> &nbsp;
-                            <input type="text" id="fname" name="fname" value="{{ QandAs.Status }}" style="width: 100px; color: black;">
-                            <br>
-                            <label for="fname" style="color: black;">Type</label> &nbsp;&nbsp;&nbsp;
-                            <input type="text" id="fname" name="fname" value="{{ QandAs.Type }}" style="width: 100px; color: black;">
+                                <ng-container *ngFor="let mainFieldsValues of QandAs.mainFieldsValue;">
+                                    <h5 *ngIf="toCheckTitleOrNot(mainFieldsValues)" class="card-title" style="text-align: center; font-size: 15px; color: black; text-decoration: none;">{{ mainFieldsValues.Value }}</h5>
+                                </ng-container>
+                                
+
+                                <label for="fname" style="color: black;">Sub Title</label> &nbsp;
+
+                                <ng-container *ngFor="let mainFieldsValues of QandAs.mainFieldsValue;">
+
+                                <input *ngIf="toCheckSubtitleOrNot(mainFieldsValues)" type="text" id="fname" name="fname1" value="{{ mainFieldsValues.Value }}" style="width: 100px; color: black;">
+                                
+                                </ng-container>
+
+                                <br>
+
+                                <label for="fname" style="color: black;">Priority</label> &nbsp;&nbsp;&nbsp;
+                                
+                                <ng-container *ngFor="let subFieldsValues of QandAs.subFieldsValue;">
+                                    <input *ngIf="toCheckPriorityOrNot(subFieldsValues)" type="text" id="fname" name="fname1" value="{{ subFieldsValues.Value }}" style="width: 100px; color: black;"> 
+                                </ng-container>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
 
             </div>
         </div>
     </div>
+
+
 
     <div class="col-sm-3">
         <div class="card" style="border: 2px ;border-style: dashed;border-radius: 10px; border-color: black;">
@@ -104,26 +151,41 @@
                 <h5 class="card-title" style="text-align: center; font-weight: bold;">DONE</h5>
 
                 <div class="col-lg-12" *ngFor="let Dones of Done;">
-                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + Dones.TicketID]">
+                    <a [routerLink]="['/company/' + this.CompanyId + '/board/' + this.BoardId + '/ticket/view/' + Dones.id]">
+                        <div class="card"
+                            style="background-color: lightgrey;border: 0px; box-shadow: none; font-size: 10px; margin-bottom: 20px;">
+                            <div class="card-body">
 
-                    <div class="card"
-                        style="background-color: lightgrey;border: 0px; box-shadow: none; font-size: 10px; margin-bottom: 20px;">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center; font-size: 15px; color: black;">{{ Dones.TicketName }}</h5>
-                            <label for="fname" style="color: black;">Status</label> &nbsp;
-                            <input type="text" id="fname" name="fname" value="{{ Dones.Status }}" style="width: 100px; color: black;">
-                            <br>
-                            <label for="fname" style="color: black;">Type</label> &nbsp;&nbsp;&nbsp;
-                            <input type="text" id="fname" name="fname" value="{{ Dones.Type }}" style="width: 100px; color: black;">
+                                <ng-container *ngFor="let mainFieldsValues of Dones.mainFieldsValue;">
+                                    <h5 *ngIf="toCheckTitleOrNot(mainFieldsValues)" class="card-title" style="text-align: center; font-size: 15px; color: black; text-decoration: none;">{{ mainFieldsValues.Value }}</h5>
+                                </ng-container>
+                                
+
+                                <label for="fname" style="color: black;">Sub Title</label> &nbsp;
+
+                                <ng-container *ngFor="let mainFieldsValues of Dones.mainFieldsValue;">
+
+                                <input *ngIf="toCheckSubtitleOrNot(mainFieldsValues)" type="text" id="fname" name="fname1" value="{{ mainFieldsValues.Value }}" style="width: 100px; color: black;">
+                                
+                                </ng-container>
+
+                                <br>
+
+                                <label for="fname" style="color: black;">Priority</label> &nbsp;&nbsp;&nbsp;
+                                
+                                <ng-container *ngFor="let subFieldsValues of Dones.subFieldsValue;">
+                                    <input *ngIf="toCheckPriorityOrNot(subFieldsValues)" type="text" id="fname" name="fname1" value="{{ subFieldsValues.Value }}" style="width: 100px; color: black;"> 
+                                </ng-container>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
-
-              
 
             </div>
         </div>
     </div>
+
+    
+
 
 </div>

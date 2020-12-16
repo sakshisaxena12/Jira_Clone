@@ -4,6 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DashboardService } from './service/dashboard.service';
+import { AppResponse } from 'src/app/models/appResponse';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +19,8 @@ export class DashboardComponent implements OnInit {
 
   Alldata:any;
 
+  message
+
  Ready: any[]=[];
  Dev: any[]=[];
  QandA: any[]=[];
@@ -27,7 +31,10 @@ export class DashboardComponent implements OnInit {
               private toastr: ToastrService, 
               private customToastrService: CustomToastrService,
               private route: ActivatedRoute,
+              private errorHandlingService: ErrorHandlingService,
               private router: Router) { 
+
+                this.CompanyId=sessionStorage.getItem("companyId")
 
     // this.authService.getdata().subscribe(data => {
     //   console.log(data)
@@ -44,63 +51,74 @@ export class DashboardComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.BoardId = params.get('boardId');
-      this.CompanyId=2
+      this.CompanyId=sessionStorage.getItem("companyId")
 
       console.log(this.BoardId)
 
 
+      this.dashboardService.getBoardData(this.BoardId).subscribe(resp =>{
 
-      
-      this.dashboardService.getalldata().subscribe(resp =>{
-
-        this.Alldata = resp
-        console.log(this.Alldata)
-        let i;
-        this.Ready=[]
-        this.Dev=[]
-        this.QandA=[]
-        this.Done=[]
-        for(i=0;i<this.Alldata.length;i++)
+        console.log(resp)
+  
+        if(resp.status)
         {
+          this.Alldata = resp.tickets
+          console.log(this.Alldata)
 
-          console.log("yes")
 
-          if(this.BoardId == this.Alldata[i].BoardId)
+          let i;
+          this.Ready=[]
+          this.Dev=[]
+          this.QandA=[]
+          this.Done=[]
+          for(i=0;i<this.Alldata.length;i++)
           {
-            if(this.Alldata[i].Status == "1")
+            //console.log("yes")
+  
+            if(this.BoardId == this.Alldata[i].boardId)
             {
-              this.Ready.push(this.Alldata[i])
+              if(this.Alldata[i].status == "READY")
+              {
+                this.Ready.push(this.Alldata[i])
+              }
+  
+              else if(this.Alldata[i].status == "DEV_IN_PROGRESS")
+              {
+                this.Dev.push(this.Alldata[i])
+              }
+  
+              else if(this.Alldata[i].status == "QA_IN_PROGRESS")
+              {
+                this.QandA.push(this.Alldata[i])
+              }
+  
+              else if(this.Alldata[i].status == "DONE")
+              {
+                this.Done.push(this.Alldata[i])
+              }
             }
-
-            else if(this.Alldata[i].Status == "2")
-            {
-              this.Dev.push(this.Alldata[i])
-            }
-
-            else if(this.Alldata[i].Status == "3")
-            {
-              this.QandA.push(this.Alldata[i])
-            }
-
-            else if(this.Alldata[i].Status == "4")
-            {
-              this.Done.push(this.Alldata[i])
-            }
-            
-
           }
 
+          console.log(this.Ready)
 
+            
         }
+        else
+        { 
+            this.message=resp.message;
+            this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+  
+        }
+  
+      },   (error: AppResponse) => {
+  
+  
+        this.errorHandlingService.errorStatus(error,"Entity List Status")
+  
+  }
+  )
 
-        console.log(this.Ready)
-        console.log(this.Dev)
-        console.log(this.QandA)
-        console.log(this.Done)
-        
-      })
 
-      
 
       // Do more processing here if needed
     });
@@ -121,6 +139,48 @@ export class DashboardComponent implements OnInit {
 
     this.customToastrService.GetErrorToastr('Hello world5  !', 'abhay sahu5', 10000);
     
+  }
+
+
+  toCheckTitleOrNot(mainFieldsValues)
+  {
+    
+    if(mainFieldsValues.Title == "title" || mainFieldsValues.Title == "Title of Ticket")
+    {
+      return true
+    }
+
+    else{
+      return false
+    }
+  }
+
+  toCheckSubtitleOrNot(mainFieldsValues)
+  {
+    // console.log(mainFieldsValues)
+    if(mainFieldsValues.Title == "subTitle" || mainFieldsValues.Title == "Sub Title")
+    {
+      return true
+    }
+
+    else{
+      return false
+    }
+
+  }
+
+  toCheckPriorityOrNot(mainFieldsValues)
+  {
+    // console.log(mainFieldsValues)
+    if(mainFieldsValues.Title == "Priority")
+    {
+      return true
+    }
+
+    else{
+      return false
+    }
+
   }
 
 }

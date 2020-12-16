@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppResponse } from 'src/app/models/appResponse';
 import { AuthService } from 'src/app/service/auth.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
@@ -16,13 +17,15 @@ export class NavBarComponent implements OnInit {
 
   Name;
   CompanyId;
-  DropDown:any[]=[]
+  BoardId;
+  board:any[]=[]
   message;
 
   constructor(private authService: AuthService,private commonService: CommonService,private customToastrService: CustomToastrService,
-    private errorHandlingService: ErrorHandlingService) {
+    private errorHandlingService: ErrorHandlingService,private route: ActivatedRoute,private router: Router) {
+
      this.Name = "XYZ"
-     this.CompanyId = 2
+     this.CompanyId = sessionStorage.getItem("companyId")
      console.log("abay sahu")
 
 
@@ -32,22 +35,22 @@ export class NavBarComponent implements OnInit {
 
       if(resp.status)
       {
-        this.DropDown = resp.boards
-        console.log(this.DropDown)
+        this.board = resp.boards
+        console.log(this.board)
       }
       else
       { 
           // this.dangerStatus=true;
           // this.successStatus=false;
           this.message=resp.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "Board Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Board Status")
 
 }
 )
@@ -56,6 +59,14 @@ export class NavBarComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.BoardId = this.route.firstChild.snapshot.params['boardId']
+  }
+
+
+  passTheRoute(id)
+  {
+    this.BoardId = id
   }
 
   toggleSideBar() {

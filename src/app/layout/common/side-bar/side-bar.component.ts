@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { Role } from 'src/app/models/role';
 import { Router } from '@angular/router';
+import { CommonService } from '../service/common.service';
+import { AppResponse } from 'src/app/models/appResponse';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 
 @Component({
@@ -15,20 +19,57 @@ export class SideBarComponent implements OnInit {
 
   CompanyId;
   boardId;
+  message
 
   ADMIN_IT= false;
   ADMIN_HR=false;
   OWNER=false;
   SCRUM_MASTER=false;
   USER=false;
+  employeedata:any[]=[]
 
-  constructor(private authService: AuthService,private router: Router,) {
+  companylogo;
+
+  constructor(private authService: AuthService,private router: Router, private commonService: CommonService,private customToastrService: CustomToastrService,
+    private errorHandlingService: ErrorHandlingService) {
 
     this.CompanyId = sessionStorage.getItem('companyId');
     this.boardId = 1
+    let id = sessionStorage.getItem('userID')
 
-    // this.roles = sessionStorage.getItem('ROLE');
-    // console.log(this.roles)
+    this.companylogo = "http://localhost:3000/logos/" + this.CompanyId + ".jpeg"
+
+    
+
+
+    this.commonService.GetEmployee(id).subscribe(resp =>{
+
+      console.log(resp)
+
+      if(resp.status)
+      {
+        this.employeedata = resp.empData
+        console.log(this.employeedata)
+      }
+      else
+      { 
+          // this.dangerStatus=true;
+          // this.successStatus=false;
+          this.message=resp.ErrorMessage;
+          this.message=resp.message;
+          this.customToastrService.GetErrorToastr(this.message, "Employee Status", 5000)
+
+      }
+
+    },   (error: AppResponse) => {
+
+
+      this.errorHandlingService.errorStatus(error,"Employee Status")
+
+}
+)
+
+
 
 
 

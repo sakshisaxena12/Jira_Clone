@@ -87,9 +87,9 @@ export class CreateCompanyComponent implements OnInit {
       {
         // this.successStatus=true;
         // this.dangerStatus=false;
-        this.message="Data is Added successfully"
+        this.message="Company is Added successfully"
 
-        this.customToastrService.GetSuccessToastr(this.message, "Employee Save Status", 5000)
+        this.customToastrService.GetSuccessToastr(this.message, "Company Save Status", 5000)
       }
       else
       {
@@ -101,7 +101,7 @@ export class CreateCompanyComponent implements OnInit {
     }
     ,   (error: AppResponse) => {
       console.log(error)
-      this.errorHandlingService.errorStatus(error,"Employer Status")
+      this.errorHandlingService.errorStatus(error,"Company Status")
 
 }
 )

@@ -32,6 +32,8 @@ export class CompanyListComponent implements OnInit {
           this.companyList[x].code=this.companyList[x].contact.code
           
           this.companyList[x].number=this.companyList[x].contact.number
+
+          this.companyList[x].logo= "http://localhost:3000/logos/" + this.companyList[x].id +".jpeg"
           
 
        
@@ -52,7 +54,7 @@ export class CompanyListComponent implements OnInit {
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Company List Status")
 
 }
 )

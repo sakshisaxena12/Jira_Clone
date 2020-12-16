@@ -6,13 +6,12 @@ import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { TicketService } from '../../service/ticket.service';
 
 @Component({
-  selector: 'app-add-ticket',
-  templateUrl: './add-ticket.component.html',
-  styleUrls: ['./add-ticket.component.css']
+  selector: 'app-edit-ticket',
+  templateUrl: './edit-ticket.component.html',
+  styleUrls: ['./edit-ticket.component.css']
 })
-export class AddTicketComponent implements OnInit {
-
-  task:any[]=[]
+export class EditTicketComponent implements OnInit {
+  task:any={}
   mainfieldsForTickets:any[]=[]
   BoardId:any[]=[]
   message
@@ -23,9 +22,12 @@ export class AddTicketComponent implements OnInit {
   employee:any[]=[]
 
   news:any = {}
+  boardDetails: any ={}
+  newboardDetails: any ={}
   showDev_QA_PM=false
 
-  ids
+  ids;
+  ticketId;
 
 
   constructor(private errorHandlingService: ErrorHandlingService,     
@@ -34,6 +36,10 @@ export class AddTicketComponent implements OnInit {
     private router: Router) {
 
        this.ids = this.route.snapshot.paramMap.get('boardId');
+       this.ticketId = this.route.snapshot.paramMap.get('ticketId');
+
+       this.getList(this.ids)
+
       console.log(this.ids)
 
 
@@ -72,8 +78,19 @@ export class AddTicketComponent implements OnInit {
     {
       this.news = resp.board
 
+      console.log(this.news)
+
       this.inputfield = this.news.mainfieldsForTickets
       this.listfield = this.news.subFieldsForTickets
+
+      this.toGetDataOfTicket()
+
+      // for(let x=0; x<this.inputfield.length; x++)
+      // {
+      //   this.inputfield[x].Value = "a"
+      // }
+
+      // console.log(this.inputfield)
         
       // console.log(console.log(this.BoardId))
     }
@@ -92,52 +109,6 @@ export class AddTicketComponent implements OnInit {
 
 }
 )
-
-
-      // this.ticketService.toCreateSt().subscribe(resp => {
-      //   this.structure = resp[0]
-
-      //   this.inputfield = this.structure.mainfieldsForTickets
-      //   this.listfield = this.structure.subFieldsForTickets
-
-      //   for(let x=0;x<this.structure.mainfieldsForTickets.length;x++)
-      //   {
-      //     if(this.structure.mainfieldsForTickets[x].Type=="Text")
-      //     {
-      //       this.inputfield.push(this.structure.mainfieldsForTickets[x])
-      //     }
-
-      //     else
-      //     {
-      //       this.listfield.push(this.structure.mainfieldsForTickets[x])
-      //     }
-
-      //   }
-
-
-      //   for(let x=0;x<this.structure.subFieldsForTickets.length;x++)
-      //   {
-      //     if(this.structure.subFieldsForTickets[x].Type=="Text")
-      //     {
-      //       this.inputfield.push(this.structure.subFieldsForTickets[x])
-      //     }
-
-      //     else
-      //     {
-      //       this.listfield.push(this.structure.subFieldsForTickets[x])
-      //     }
-
-      //   }
-
-      //   console.log(this.inputfield)
-      //   console.log(this.listfield)
-
-      //   console.log(this.structure)
-
-
-      // })
-
-      
       
 
     }
@@ -146,11 +117,74 @@ export class AddTicketComponent implements OnInit {
   
   }
 
-  getList(event)
-  {
-    let id = event.target.value
-    console.log(id)
 
+  toGetDataOfTicket()
+  {
+    console.log(this.ticketId)
+    console.log(this.inputfield)
+    console.log(this.listfield)
+    this.ticketService.toGetParticularTicket(this.ids,this.ticketId).subscribe(resp =>{
+
+      // console.log(resp)
+
+      if(resp.status)
+      {
+        this.boardDetails = resp.ticket
+
+        console.log(this.boardDetails)
+
+        for(let x=0; x<this.inputfield.length; x++)
+      {
+        this.inputfield[x].Value = this.boardDetails.mainFieldsValue[x].Value
+      }
+
+      
+      for(let x=0; x<this.listfield.length; x++)
+      {
+        if(this.boardDetails.subFieldsValue[x].Title == "Priority")
+        {
+          this.listfield[x].Value = (this.boardDetails.subFieldsValue[x].Value).toUpperCase()
+        }
+        else
+        {
+          this.listfield[x].Value = (this.boardDetails.subFieldsValue[x].Value)
+        }
+        
+      }
+
+        this.task.status = this.boardDetails.status
+        this.task.devId = this.boardDetails.developer
+        this.task.qaId = this.boardDetails.qA
+        this.task.pmId = this.boardDetails.pM
+        this.task.boardId = this.boardDetails.boardId
+       
+       
+        console.log(this.listfield)
+      }
+      else
+      { 
+          this.message=resp.message;
+          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+
+      }
+
+    },   (error: AppResponse) => {
+
+      this.errorHandlingService.errorStatus(error,"Entity List Status")
+
+}
+)
+    // for(let x=0; x<this.inputfield.length; x++)
+      // {
+      //   this.inputfield[x].Value = "a"
+      // }
+
+      // console.log(this.inputfield)
+
+  }
+
+  getList(id)
+  {
 
     this.ticketService.getTheTeamempolyee(id).subscribe(resps =>{
 
@@ -229,14 +263,16 @@ export class AddTicketComponent implements OnInit {
         
         }
 
+        
+
         let newdata={
           mainFieldsValue: obj1.mainFieldsValue,
           subFieldsValue: obj2.subFieldsValue,
           status: data.status,
           repoterId:sessionStorage.getItem('userID'),
-          developer: data.devId,
-          qA: data.qaId,
-          pM:data.pmId
+          developer: ((data.devId !="UNASSIGNED")?data.devId:undefined),
+          qA: ((data.qaId !="UNASSIGNED")?data.qaId:undefined),
+          pM: ((data.pmId !="UNASSIGNED")?data.pmId:undefined)
 
         }
 
@@ -249,7 +285,7 @@ export class AddTicketComponent implements OnInit {
 
       
     
-    this.ticketService.TicketDataSave(newdata,this.ids ).subscribe(resp => {
+    this.ticketService.editTicketData(newdata,this.ids,this.ticketId ).subscribe(resp => {
 
       console.log(resp)
      

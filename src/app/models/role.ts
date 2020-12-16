@@ -5,4 +5,4 @@ export enum Role {
     SCRUM_MASTER="SCRUM_MASTER",
     USER = 'USER',
   }
-  
+   

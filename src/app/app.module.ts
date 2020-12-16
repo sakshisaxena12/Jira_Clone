@@ -65,6 +65,9 @@ import { CompanyListComponent } from './layout/component/admin/component/company
 import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component';
 import { CommonService } from './layout/common/service/common.service';
 import { AdminService } from './layout/component/admin/service/admin.service';
+import { MainfieldpopComponent } from './layout/component/board/component/mainfieldpop/mainfieldpop.component';
+import { SubFieldsComponent } from './layout/component/board/component/sub-fields/sub-fields.component';
+import { EditTicketComponent } from './layout/component/ticket/component/edit-ticket/edit-ticket.component';
 
 
 
@@ -92,6 +95,9 @@ import { AdminService } from './layout/component/admin/service/admin.service';
     CreateCompanyComponent,
     CompanyListComponent,
     EditEmployeeComponent,
+    MainfieldpopComponent,
+    SubFieldsComponent,
+    EditTicketComponent,
 
   ],
   imports: [
@@ -129,7 +135,7 @@ import { AdminService } from './layout/component/admin/service/admin.service';
 
 
   ],
-  entryComponents:[EditEmployeeComponent],
+  entryComponents:[EditEmployeeComponent,MainfieldpopComponent,SubFieldsComponent],
 
   providers: [
       {provide: LocationStrategy, useClass: HashLocationStrategy},

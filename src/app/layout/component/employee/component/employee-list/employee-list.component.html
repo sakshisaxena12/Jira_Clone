@@ -16,8 +16,9 @@
             <th scope="col">Email</th>
             <th *ngIf="passwords" scope="col">Password</th>
             <th scope="col">Role</th>
-            <th scope="col">edit</th>
-            <th scope="col">delete</th>
+            <th *ngIf="Addemployee" scope="col">Add Employee</th>
+            <th *ngIf="edit" scope="col">edit</th>
+            <th *ngIf="deletes" scope="col">delete</th>
 
           </tr>
         </thead>
@@ -28,38 +29,50 @@
             <td>{{ Employees.email }}</td>
             <td *ngIf="passwords">{{ Employees.password }}</td>
             <td>{{ Employees.role }}</td>
-            <td><a style="cursor: pointer;" (click)="update(Employees)"><i class="material-icons"
-                  style="color: green;">&#xE254;</i> </a></td>
-            <td><a style="cursor: pointer;" (click)="delete(Employees)"><i class="fa fa-trash-o" aria-hidden="true"
-                  style="color: green;"></i> </a></td>
+            <td *ngIf="Addemployee"><input type="checkbox" id="defaultCheck" name="IsActive" (change)="updateTheTeam(Employees.id)" [checked]="Employees.isActive"></td>
+            <td *ngIf="edit"><a style="cursor: pointer;" (click)="update(Employees)"><i class="material-icons" style="color: green;">&#xE254;</i> </a></td>
+            <td *ngIf="deletes"><a style="cursor: pointer;" (click)="delete(Employees)"><i class="fa fa-trash-o" aria-hidden="true" style="color: green;"></i> </a></td>
 
           </tr>
 
-          <tr>
-            <th scope="row">1</th>
-            <td>abhay</td>
-            <td>jhgg</td>
-            <!-- <td>{{ Employees.password }}</td> -->
-            <td>ggjgfyfh</td>
-            <td><a style="cursor: pointer;" (click)="update(Employees)"><i class="material-icons"
-                  style="color: green;">&#xE254;</i> </a></td>
-            <td><a style="cursor: pointer;" (click)="delete(Employees)"><i class="fa fa-trash-o" aria-hidden="true"
-                  style="color: green;"></i> </a></td>
-
-          </tr>
+          
         </tbody>
       </table>
 
 
       <!-- this is for add the employee -->
-      <input type="file" name="File Upload" id="txtFileUpload" (change)="fileupload($event.target.files)"
-        accept=".csv" />
+
+      <div class="form-group row" *ngIf="passwords">
+
+        <label for="" class="col-sm-3 col-md-2 col-form-label" style="color: green;" >Add In Bluk</label>
+        <div class="col-sm-4 col-md-4">
+          <div class="custom-file">
+            <input type="file" style="color: green;" class="custom-file-input" (change)="fileupload($event.target.files)" accept=".csv"
+              id="customFile">
+            <label style="color: green;" class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+        </div>
+
+
+        <label for="" class="col-sm-3 col-md-2 col-form-label" style="color: red">Delete In Bluk</label>
+        <div class="col-sm-4 col-md-4">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" style="color: red" (change)="deleteEmployee($event.target.files)" accept=".csv"
+              id="customFile">
+            <label class="custom-file-label" style="color: red" for="customFile">Choose file</label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- <input type="file" name="File Upload" id="txtFileUpload" (change)="fileupload($event.target.files)"
+        accept=".csv" /> -->
 
 
 
       <!-- this is for delete the employee -->
-      <input type="file" name="File Upload" id="txtFileUpload" (change)="deleteEmployee($event.target.files)"
-        accept=".csv" />
+      <!-- <input type="file" name="File Upload" id="txtFileUpload" (change)="deleteEmployee($event.target.files)"
+        accept=".csv" /> -->
 
     </div>
   </div>
