@@ -21,9 +21,12 @@
                   <form #f="ngForm" (ngSubmit)="Addmain(f.value)" class="was-validated">
 
                     <div class="form-group row" style="margin-top: 10px ;">
-                      <label for="title" class="col-sm-4 col-md-2 col-form-label">Title</label>
-                      <div class="col-sm-8 col-md-10">
-                        <input type="text" class="form-control" placeholder="John Doe" #title="ngModel" [(ngModel)]="editRole.title" name="title" id="title">
+                      <label for="title" class="col-sm-6 col-md-3 col-form-label"
+                        style="text-align: center;">Title</label>
+
+                      <div class="col-sm-6 col-md-9">
+                        <input type="text" class="form-control" placeholder="Enter Title" #title="ngModel"
+                          [(ngModel)]="editRole.title" name="title" id="title">
                         <div class="invalid-feedback" *ngIf="title.touched && title.invalid">
                           Name Is Required.
                         </div>
@@ -34,43 +37,101 @@
 
 
                     <div class="form-group row">
-                      <label for="type" class="col-sm-8 col-md-2 col-form-label">type</label>
-                      <select class="custom-select" type="text" (change)="getList($event)" #type="ngModel"  [(ngModel)]="editRole.type" name="type" id="type" >
-                        <option value="Text">Text</option>
-                        <option value="List">List</option>
-                    
-                       </select>
-                       <div class="invalid-feedback" *ngIf="type.touched && type.invalid">
-                         Role is Required
-                       </div>
+                      <label for="type" class="col-sm-6 col-md-3 col-form-label" style="text-align:center">Type</label>
+                      <div class="col-sm-6 col-md-9">
+                        <select class="custom-select" type="text" (change)="getList($event)" #type="ngModel"
+                          [(ngModel)]="editRole.type" name="type" id="type">
+                          <option value="Text">Text</option>
+                          <option value="List">List</option>
+
+                        </select>
+                      </div>
+                      <div class="invalid-feedback" *ngIf="type.touched && type.invalid">
+                        Role is Required
+                      </div>
                     </div>
 
                     <br>
                     <br>
 
 
-                    <div class="form-group col-md-4" *ngIf="statusToShow">
+                    <div class="form-group col-md-12" *ngIf="statusToShow">
+                      <label for="type" class="col-sm-12 col-md-12 col-form-label">Enter List Fields:</label>
 
-                      <input type="text" class="form-control" placeholder="John Doe" #item1="ngModel" [(ngModel)]="editRole.item1" name="item1" id="item1">
+                      <br>
+                      <div class="form-group row">
+                        <label for="type" class="col-sm-6 col-md-4 col-form-label" style="text-align: right;">1</label>
+                        <div class="col-sm-6 col-md-8">
+                          <input type="text" class="col-md-6 form-control" placeholder="Enter Field" #item1="ngModel"
+                            [(ngModel)]="editRole.item1" name="item1" id="item1">
+                        </div>
 
-                      <input type="text" class="form-control" placeholder="John Doe" #item2="ngModel" [(ngModel)]="editRole.item2" name="item2" id="item2">
+                      </div>
 
-                      <input type="text" class="form-control" placeholder="John Doe" #item3="ngModel" [(ngModel)]="editRole.item3" name="item3" id="item3">
+                      <br>
 
-                      <input type="text" class="form-control" placeholder="John Doe" #item4="ngModel" [(ngModel)]="editRole.item4" name="item4" id="item4">
 
-                      <input type="text" class="form-control" placeholder="John Doe" #item5="ngModel" [(ngModel)]="editRole.item5" name="item5" id="item5">
 
-                      
+
+
+                      <div class="form-group row">
+                        <label for="type" class="col-sm-6 col-md-4 col-form-label" style="text-align: right;">2</label>
+                        <div class="col-sm-6 col-md-8">
+                          <input type="text" class="col-md-6 form-control" placeholder="Enter Field" #item2="ngModel"
+                            [(ngModel)]="editRole.item2" name="item2" id="item2">
+                        </div>
+
+                      </div>
+
+                      <br>
+
+                      <div class="form-group row">
+                        <label for="type" class="col-sm-6 col-md-4 col-form-label" style="text-align: right;">3</label>
+                        <div class="col-sm-6 col-md-8">
+                          <input type="text" class="col-md-6 form-control" placeholder="Enter Field" #item3="ngModel"
+                            [(ngModel)]="editRole.item3" name="item3" id="item3">
+                        </div>
+
+                      </div>
+
+                      <br>
+
+                      <div class="form-group row">
+                        <label for="type" class="col-sm-6 col-md-4 col-form-label" style="text-align: right;">4</label>
+                        <div class="col-sm-6 col-md-8">
+                          <input type="text" class="col-md-6 form-control" placeholder="Enter Field" #item4="ngModel"
+                            [(ngModel)]="editRole.item4" name="item4" id="item4">
+                        </div>
+
+                      </div>
+                      <br>
+
+                      <div class="form-group row">
+                        <label for="type" class="col-sm-6 col-md-4 col-form-label" style="text-align: right;">5</label>
+                        <div class="col-sm-6 col-md-8">
+                          <input type="text" class="col-md-6 form-control" placeholder="Enter Field" #item5="ngModel"
+                            [(ngModel)]="editRole.item5" name="item5" id="item5">
+                        </div>
+
+                      </div>
+
+
+
+
+
+
                     </div>
 
-
+                    <br>
+                    <br>
 
                     <div class="form-group row">
 
-                      <button type="submit" [disabled]="!f.valid" class="btn btn-primary" style="text-align: center;margin-left: 40%;">UPDATE</button>
+                      <button type="submit" [disabled]="!f.valid" class="btn btn-primary"
+                        style="text-align: center;margin-left: 40%;">UPDATE</button>
 
-                      <button type="button" class="btn btn-danger" (click)="close()" style="margin-left: 10px;"><i class="fa fa-close"></i> Close</button>
+                      <button type="button" class="btn btn-danger" (click)="close()" style="margin-left: 10px;"><i
+                          class="fa fa-close"></i> Close</button>
 
                     </div>
                   </form>
@@ -87,6 +148,3 @@
     </div>
   </div>
 </div>
-
-
-
