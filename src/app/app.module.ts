@@ -67,6 +67,7 @@ import { CommonService } from './layout/common/service/common.service';
 import { AdminService } from './layout/component/admin/service/admin.service';
 import { MainfieldpopComponent } from './layout/component/board/component/mainfieldpop/mainfieldpop.component';
 import { SubFieldsComponent } from './layout/component/board/component/sub-fields/sub-fields.component';
+import { EditTicketComponent } from './layout/component/ticket/component/edit-ticket/edit-ticket.component';
 
 
 
@@ -96,6 +97,7 @@ import { SubFieldsComponent } from './layout/component/board/component/sub-field
     EditEmployeeComponent,
     MainfieldpopComponent,
     SubFieldsComponent,
+    EditTicketComponent,
 
   ],
   imports: [

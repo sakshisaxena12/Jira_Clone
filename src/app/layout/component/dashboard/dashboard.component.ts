@@ -99,6 +99,8 @@ export class DashboardComponent implements OnInit {
             }
           }
 
+          console.log(this.Ready)
+
             
         }
         else
@@ -143,7 +145,7 @@ export class DashboardComponent implements OnInit {
   toCheckTitleOrNot(mainFieldsValues)
   {
     
-    if(mainFieldsValues.Title == "title")
+    if(mainFieldsValues.Title == "title" || mainFieldsValues.Title == "Title of Ticket")
     {
       return true
     }
@@ -156,7 +158,7 @@ export class DashboardComponent implements OnInit {
   toCheckSubtitleOrNot(mainFieldsValues)
   {
     // console.log(mainFieldsValues)
-    if(mainFieldsValues.Title == "subTitle")
+    if(mainFieldsValues.Title == "subTitle" || mainFieldsValues.Title == "Sub Title")
     {
       return true
     }

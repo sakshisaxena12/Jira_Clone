@@ -14,6 +14,7 @@ export class ViewTicketComponent implements OnInit {
 
   boardId;
   ticketId;
+  companyId;
   message;
 
   boardDetails: any ={}
@@ -27,9 +28,11 @@ export class ViewTicketComponent implements OnInit {
 
       this.boardId = this.route.snapshot.paramMap.get('boardId');
       this.ticketId = this.route.snapshot.paramMap.get('ticketId');
+      this.companyId = sessionStorage.getItem('companyId')
 
       console.log(this.boardId)
       console.log(this.ticketId)
+      console.log(this.companyId)
 
 
 
@@ -70,21 +73,21 @@ export class ViewTicketComponent implements OnInit {
         {
           this.boardDetails = resp.ticket
 
-          console.log(this.boardDetails[0])
+          console.log(this.boardDetails)
 
           for(let x=0; x<this.boardDetails.mainFieldsValue.length;x++)
           {
-            if(this.boardDetails.mainFieldsValue[x].Title == "title")
+            if(this.boardDetails.mainFieldsValue[x].Title == "title" || this.boardDetails.mainFieldsValue[x].Title == "Title of Ticket")
             {
               this.newboardDetails.Title = this.boardDetails.mainFieldsValue[x].Value
             }
 
-            if(this.boardDetails.mainFieldsValue[x].Title == "subTitle")
+            if(this.boardDetails.mainFieldsValue[x].Title == "subTitle" || this.boardDetails.mainFieldsValue[x].Title == "Sub Title")
             {
               this.newboardDetails.SubTitle = this.boardDetails.mainFieldsValue[x].Value
             }
             
-            if(this.boardDetails.mainFieldsValue[x].Title == "description")
+            if(this.boardDetails.mainFieldsValue[x].Title == "desciption" || this.boardDetails.mainFieldsValue[x].Title == "Desciption")
             {
               this.newboardDetails.Description = this.boardDetails.mainFieldsValue[x].Value
             }
@@ -96,17 +99,17 @@ export class ViewTicketComponent implements OnInit {
             if(this.boardDetails.subFieldsValue[x].Title == "Priority")
             {
               this.newboardDetails.Priority = this.boardDetails.subFieldsValue[x].Value
-              if(this.newboardDetails.Priority == "Low")
+              if(this.newboardDetails.Priority == "Low" ||this.newboardDetails.Priority == "LOW" )
               {
                 this.newboardDetails.color = "green"
               }
 
-              if(this.newboardDetails.Priority == "Medium")
+              if(this.newboardDetails.Priority == "Medium" || this.newboardDetails.Priority == "MEDIUM")
               {
                 this.newboardDetails.color = "yellow"
               }
 
-              if(this.newboardDetails.Priority == "High")
+              if(this.newboardDetails.Priority == "High" || this.newboardDetails.Priority == "HIGH")
               {
                 this.newboardDetails.color = "red"
               }
@@ -120,6 +123,7 @@ export class ViewTicketComponent implements OnInit {
           this.newboardDetails.Pm = this.boardDetails.pM
           this.newboardDetails.Qa = this.boardDetails.qA
           this.newboardDetails.Status = this.boardDetails.status
+          this.newboardDetails.Id = this.boardDetails.id
 
           console.log(this.newboardDetails)
         }

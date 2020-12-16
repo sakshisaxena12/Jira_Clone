@@ -28,12 +28,18 @@ export class SideBarComponent implements OnInit {
   USER=false;
   employeedata:any[]=[]
 
+  companylogo;
+
   constructor(private authService: AuthService,private router: Router, private commonService: CommonService,private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService) {
 
     this.CompanyId = sessionStorage.getItem('companyId');
     this.boardId = 1
     let id = sessionStorage.getItem('userID')
+
+    this.companylogo = "http://localhost:3000/logos/" + this.CompanyId + ".jpeg"
+
+    
 
 
     this.commonService.GetEmployee(id).subscribe(resp =>{
@@ -51,14 +57,14 @@ export class SideBarComponent implements OnInit {
           // this.successStatus=false;
           this.message=resp.ErrorMessage;
           this.message=resp.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "Employee Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Employee Status")
 
 }
 )

@@ -43,14 +43,14 @@ export class NavBarComponent implements OnInit {
           // this.dangerStatus=true;
           // this.successStatus=false;
           this.message=resp.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "Board Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Board Status")
 
 }
 )
@@ -60,11 +60,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.paramMap.subscribe(params => {
-      this.BoardId = params.get('boardId');
-
-      console.log(this.BoardId)
-    })
+    this.BoardId = this.route.firstChild.snapshot.params['boardId']
   }
 
 

@@ -28,6 +28,20 @@ export class TicketService {
     return this.httpClient.post<any>(environment.webapiUrl+`api/company/${companyID}/board/${boardId}/ticket`,task, { headers: headers })
   }
 
+  editTicketData(task,boardId,ticketId)
+  {
+    // const token = sessionStorage.getItem('token')
+    // const headers = new HttpHeaders({ 
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+    const headers = this.errorHandlingService.getauthorization()
+
+    const companyID = sessionStorage.getItem('companyId');
+
+    return this.httpClient.put<any>(environment.webapiUrl+`api/company/${companyID}/board/${boardId}/ticket/${ticketId}`,task, { headers: headers })
+  }
+
 
   getTheTeamempolyee(boardId)
   {

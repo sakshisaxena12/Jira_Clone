@@ -41,10 +41,10 @@
           
           
           <a *ngFor="let dropdownLists of board" class="dropdown-item" (click)="passTheRoute(dropdownLists.id)" [routerLink]="['/company/' + this.CompanyId + '/board/' + dropdownLists.id]">{{dropdownLists.title}}</a>
-          <a  class="dropdown-item" (click)="passTheRoute(1)" [routerLink]="['/company/' + this.CompanyId + '/board/1']">1</a>
+          <!-- <a  class="dropdown-item" (click)="passTheRoute(1)" [routerLink]="['/company/' + this.CompanyId + '/board/1']">1</a>
           <a  class="dropdown-item" (click)="passTheRoute(2)" [routerLink]="['/company/' + this.CompanyId + '/board/2']">2</a>
           <a  class="dropdown-item" [routerLink]="['/company/' + this.CompanyId + '/board/3']">3</a>
-         
+          -->
 
         </div>
       </li>

@@ -18,6 +18,7 @@ import { AddBoardComponent } from './layout/component/board/component/add-board/
 import { BoardListComponent } from './layout/component/board/component/board-list/board-list.component';
 import { CreateCompanyComponent } from './layout/component/admin/component/create-company/create-company.component';
 import { CompanyListComponent } from './layout/component/admin/component/company-list/company-list.component';
+import { EditTicketComponent } from './layout/component/ticket/component/edit-ticket/edit-ticket.component';
 
 const routes: Routes = [
 
@@ -107,6 +108,18 @@ const routes: Routes = [
         //   Role.User
         // ]}
       },
+
+      {
+        path: 'board/:boardId/ticket/edit/:ticketId' , component: EditTicketComponent
+        // canActivate: [AuthGuardService],
+        // data: { roles: [
+        //   Role.Admin,
+        //   Role.HR,
+        //   Role.Manager,
+        //   Role.User
+        // ]}
+      },
+
 
       {
         path: 'board/:boardId/ticket/view/:ticketId' , component: ViewTicketComponent,

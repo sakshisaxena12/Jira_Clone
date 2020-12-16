@@ -54,7 +54,7 @@ export class CompanyListComponent implements OnInit {
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Company List Status")
 
 }
 )
