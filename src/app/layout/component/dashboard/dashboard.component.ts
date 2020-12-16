@@ -106,14 +106,14 @@ export class DashboardComponent implements OnInit {
         else
         { 
             this.message=resp.message;
-            this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+            this.customToastrService.GetErrorToastr(this.message, "Board Status", 5000)
   
         }
   
       },   (error: AppResponse) => {
   
   
-        this.errorHandlingService.errorStatus(error,"Entity List Status")
+        this.errorHandlingService.errorStatus(error,"Board Status")
   
   }
   )

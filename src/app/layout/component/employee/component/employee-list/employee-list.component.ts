@@ -24,6 +24,7 @@ export class EmployeeListComponent implements OnInit {
   teamData: any 
 
   toUpdateTeamId;
+  blob
 
 
   fileToUpload: File = null;
@@ -363,7 +364,17 @@ export class EmployeeListComponent implements OnInit {
     console.log(this.fileToUpload)
 
 
-        this.employeeService.AddEmployeeInBulk(this.fileToUpload).subscribe(resp => {
+        this.employeeService.AddEmployeeInBulk(this.fileToUpload).subscribe((resp) => {
+
+          this.blob = new Blob([resp], {type: 'application/pdf'});
+
+          console.log(this.blob)
+
+          var downloadURL = window.URL.createObjectURL(resp);
+          var link = document.createElement('a');
+          link.href = downloadURL;
+          link.download = "help.pdf";
+          link.click();
 
           // console.log(resp)
          
@@ -384,7 +395,7 @@ export class EmployeeListComponent implements OnInit {
         }
         ,   (error: AppResponse) => {
           // console.log(error)
-          this.errorHandlingService.errorStatus(error,"Employer Status")
+          this.errorHandlingService.errorStatus(error,"Employee Status")
     
     }
         )    
