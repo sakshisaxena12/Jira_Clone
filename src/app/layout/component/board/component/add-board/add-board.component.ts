@@ -51,7 +51,7 @@ export class AddBoardComponent implements OnInit {
     let fields3 ={ 
       Title:"Priority",
       Type:"List",
-      Items:["High","Low","Medium"]
+      Items:["HIGH","LOW","MEDIUM"]
     }
 
     this.subFields.push(fields3)
