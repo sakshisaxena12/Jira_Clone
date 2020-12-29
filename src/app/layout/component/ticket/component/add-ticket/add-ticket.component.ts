@@ -50,14 +50,14 @@ export class AddTicketComponent implements OnInit {
         { 
             
             this.message=resp.message;
-            this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+            this.customToastrService.GetErrorToastr(this.message, "Add Ticket Status", 5000)
   
         }
   
       },   (error: AppResponse) => {
   
   
-        this.errorHandlingService.errorStatus(error,"Entity List Status")
+        this.errorHandlingService.errorStatus(error,"Add Ticket Status")
   
   }
   )
@@ -81,14 +81,14 @@ export class AddTicketComponent implements OnInit {
     { 
         
         this.message=resp.message;
-        this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+        this.customToastrService.GetErrorToastr(this.message, "Add Ticket Status", 5000)
 
     }
 
   },   (error: AppResponse) => {
 
 
-    this.errorHandlingService.errorStatus(error,"Entity List Status")
+    this.errorHandlingService.errorStatus(error,"Add Ticket Status")
 
 }
 )
@@ -168,14 +168,14 @@ export class AddTicketComponent implements OnInit {
       { 
           
           this.message=resps.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "Add Ticket Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Add Ticket Status")
 
 }
 )
@@ -257,9 +257,9 @@ export class AddTicketComponent implements OnInit {
       {
         // this.successStatus=true;
         // this.dangerStatus=false;
-        this.message="Data is Added successfully"
+        this.message="Ticket is Added successfully"
 
-        this.customToastrService.GetSuccessToastr(this.message, "Employee Save Status", 5000)
+        this.customToastrService.GetSuccessToastr(this.message, "Add Ticket Status", 5000)
       }
       else
       {
@@ -271,7 +271,7 @@ export class AddTicketComponent implements OnInit {
     }
     ,   (error: AppResponse) => {
       console.log(error)
-      this.errorHandlingService.errorStatus(error,"Employer Status")
+      this.errorHandlingService.errorStatus(error,"Add Ticket Status")
 
 }
 )

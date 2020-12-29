@@ -32,6 +32,7 @@ export class CreateCompanyComponent implements OnInit {
   {
     this.imageUpload = file[0];
     console.log(this.imageUpload)
+    this.customToastrService.GetSuccessToastr("Uploaded", "file", 2000)
 
   }
 

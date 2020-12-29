@@ -366,6 +366,8 @@ export class EmployeeListComponent implements OnInit {
 
         this.employeeService.AddEmployeeInBulk(this.fileToUpload).subscribe((resp) => {
 
+          console.log(resp)
+
           this.blob = new Blob([resp], {type: 'application/pdf'});
 
           console.log(this.blob)

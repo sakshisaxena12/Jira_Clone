@@ -56,14 +56,14 @@ export class EditTicketComponent implements OnInit {
         { 
             
             this.message=resp.message;
-            this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+            this.customToastrService.GetErrorToastr(this.message, "Edit Ticket Status", 5000)
   
         }
   
       },   (error: AppResponse) => {
   
   
-        this.errorHandlingService.errorStatus(error,"Entity List Status")
+        this.errorHandlingService.errorStatus(error,"Edit Ticket Status")
   
   }
   )
@@ -98,14 +98,14 @@ export class EditTicketComponent implements OnInit {
     { 
         
         this.message=resp.message;
-        this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+        this.customToastrService.GetErrorToastr(this.message, "Edit Ticket Status", 5000)
 
     }
 
   },   (error: AppResponse) => {
 
 
-    this.errorHandlingService.errorStatus(error,"Entity List Status")
+    this.errorHandlingService.errorStatus(error,"Edit Ticket Status")
 
 }
 )
@@ -164,13 +164,13 @@ export class EditTicketComponent implements OnInit {
       else
       { 
           this.message=resp.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "Edit Ticket Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Edit Ticket Status")
 
 }
 )
@@ -202,14 +202,14 @@ export class EditTicketComponent implements OnInit {
       { 
           
           this.message=resps.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "Edit Ticket Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Edit Ticket Status")
 
 }
 )
@@ -293,9 +293,9 @@ export class EditTicketComponent implements OnInit {
       {
         // this.successStatus=true;
         // this.dangerStatus=false;
-        this.message="Data is Added successfully"
+        this.message="Ticket is update successfully"
 
-        this.customToastrService.GetSuccessToastr(this.message, "Employee Save Status", 5000)
+        this.customToastrService.GetSuccessToastr(this.message, "Edit Ticket Status", 5000)
       }
       else
       {
@@ -307,7 +307,7 @@ export class EditTicketComponent implements OnInit {
     }
     ,   (error: AppResponse) => {
       console.log(error)
-      this.errorHandlingService.errorStatus(error,"Employer Status")
+      this.errorHandlingService.errorStatus(error,"Edit Ticket")
 
 }
 )

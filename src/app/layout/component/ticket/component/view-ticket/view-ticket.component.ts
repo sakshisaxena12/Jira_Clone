@@ -52,14 +52,14 @@ export class ViewTicketComponent implements OnInit {
       { 
           
           this.message=resps.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "View Ticket Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"View Ticket Status")
 
 }
 )
@@ -96,7 +96,7 @@ export class ViewTicketComponent implements OnInit {
             this.newboardDetails.SubTitle = this.boardDetails.mainFieldsValue[x].Value
           }
           
-          if(this.boardDetails.mainFieldsValue[x].Title == "desciption" || this.boardDetails.mainFieldsValue[x].Title == "Desciption")
+          if(this.boardDetails.mainFieldsValue[x].Title == "description" || this.boardDetails.mainFieldsValue[x].Title == "Desciption")
           {
             this.newboardDetails.Description = this.boardDetails.mainFieldsValue[x].Value
           }
@@ -139,13 +139,13 @@ export class ViewTicketComponent implements OnInit {
       else
       { 
           this.message=resp.message;
-          this.customToastrService.GetErrorToastr(this.message, "Employee List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "View Ticket Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"View Ticket Status")
 
 }
 )
